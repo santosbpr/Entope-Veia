@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entope Veia - Entrar no Clube</title>
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+
+    <div class="split-screen">
+        
+        <div class="left-side">
+            <div class="hero-text-container">
+                <h1 class="brand-logo">ENTOPE VEIA</h1>
+                <h2 class="brand-slogan">Sabor que bate forte.</h2>
+                <p class="brand-warning">Coma por sua conta e risco.</p>
+                
+                <div class="badge-row">
+                    <span class="badge badge-yellow">ORIGINAL</span>
+                    <span class="badge badge-red">INDULGENTE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-side">
+            <div class="auth-box">
+                
+                <div class="auth-tabs">
+                    <button class="tab-btn active" id="tab-login" onclick="switchTab('login')">ENTRAR</button>
+                    <button class="tab-btn" id="tab-register" onclick="switchTab('register')">CADASTRAR</button>
+                </div>
+
+                <form id="auth-form" onsubmit="handleSubmit(event)">
+                    
+                    <div class="input-group">
+                        <label for="email" id="label-email">E-mail ou Usuário</label>
+                        <input type="text" id="email" placeholder="ex: fominha@email.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+
+                    <div class="input-group hidden" id="confirm-password-group">
+                        <label for="confirm-password">Confirmar Senha</label>
+                        <input type="password" id="confirm-password" placeholder="••••••••">
+                    </div>
+
+                    <div class="form-options" id="form-options-row">
+                        <label class="remember-me">
+                            <input type="checkbox"> <span>Lembrar-me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                    </div>
+
+                    <button type="submit" class="btn-primary" id="btn-submit">ENTRAR NO CLUBE</button>
+
+                </form>
+
+                <div class="social-divider">
+                    <span>OU CONTINUE COM</span>
+                </div>
+
+                <div class="social-buttons">
+                    <button class="btn-social">
+                        <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google"> Google
+                    </button>
+                    <button class="btn-social">
+                        <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook"> Facebook
+                    </button>
+                </div>
+
+                <p class="legal-disclaimer">
+                    Ao continuar, você aceita nossos <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade</a>.
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer id="global-login-footer" class="login-footer"></footer>
+
+    <script>
+        function switchTab(mode) {
+            const tabLogin = document.getElementById('tab-login');
+            const tabRegister = document.getElementById('tab-register');
+            const confirmGroup = document.getElementById('confirm-password-group');
+            const confirmInput = document.getElementById('confirm-password');
+            const formOptions = document.getElementById('form-options-row');
+            const btnSubmit = document.getElementById('btn-submit');
+            const labelEmail = document.getElementById('label-email');
+
+            if (mode === 'register') {
+                tabLogin.classList.remove('active');
+                tabRegister.classList.add('active');
+                confirmGroup.classList.remove('hidden');
+                confirmInput.setAttribute('required', 'true');
+                formOptions.style.display = 'none';
+                btnSubmit.innerText = 'CRIAR MINHA CONTA';
+                labelEmail.innerText = 'E-mail';
+            } else {
+                tabLogin.classList.add('active');
+                tabRegister.classList.remove('active');
+                confirmGroup.classList.add('hidden');
+                confirmInput.removeAttribute('required');
+                formOptions.style.display = 'flex';
+                btnSubmit.innerText = 'ENTRAR NO CLUBE';
+                labelEmail.innerText = 'E-mail ou Usuário';
+            }
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const isRegister = document.getElementById('tab-register').classList.contains('active');
+            
+            if (isRegister) {
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
+                if (password !== confirmPassword) {
+                    alert('As senhas não coincidem!');
+                    return;
+                }
+                alert(`Simulação: Conta criada com sucesso para ${email}!`);
+            } else {
+                alert(`Simulação: Login efetuado com sucesso para ${email}!`);
+            }
+        }
+    </script>
+    <script src="./js/components.js"></script>
+</body>
+</html>

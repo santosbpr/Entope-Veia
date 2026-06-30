@@ -1,0 +1,473 @@
+/* --- Configurações Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Black', 'Impact', sans-serif;
+}
+
+body {
+    background-color: #0d0d0d;
+    color: #ffffff;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.app-container {
+    display: flex;
+}
+
+/* --- SIDEBAR LATERAL --- */
+.sidebar {
+    width: 250px;
+    background-color: #111111;
+    border-right: 1px solid #1a1a1a;
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    height: 100vh;
+}
+
+.logo-title {
+    color: #ff4a5a;
+    font-size: 28px;
+    font-style: italic;
+    letter-spacing: -1px;
+}
+
+.user-slogan {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: #888;
+    margin-top: 5px;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: -100px;
+}
+
+.sidebar-menu ul li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #aaa;
+}
+
+.sidebar-menu ul li.active a {
+    background-color: #fce3a1;
+    color: #000;
+}
+
+.sidebar-menu ul li a:hover:not(.active a) {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.btn-order-now {
+    width: 100%;
+    background-color: #e31b23;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- CONTEÚDO PRINCIPAL --- */
+.main-content {
+    margin-left: 250px;
+    flex-grow: 1;
+    padding: 40px 4%;
+}
+
+/* Cabeçalho Interno */
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.page-title {
+    font-size: 22px;
+    font-style: italic;
+    letter-spacing: 0px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.pts-badge {
+    background-color: #111;
+    border: 1px solid #333;
+    padding: 8px 16px;
+    font-size: 13px;
+    border-radius: 20px;
+    color: #fce3a1;
+}
+
+.cart-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* --- DASHBOARD ROW --- */
+.dashboard-row {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 45px;
+}
+
+.dash-card {
+    background-color: #111111;
+    border: 1px solid #222222;
+    padding: 25px;
+}
+
+/* Card do Círculo de Progresso */
+.progress-circle-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.svg-container {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin-bottom: 20px;
+}
+
+.svg-container svg circle {
+    fill: none;
+    stroke-width: 12;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+.svg-container svg circle.bg {
+    stroke: #222;
+}
+
+.svg-container svg circle.prog {
+    stroke: #fce3a1;
+    stroke-linecap: round;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 44; /* Representa os 450 de 500 totais */
+}
+
+.circle-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.pts-number {
+    font-size: 38px;
+    line-height: 1;
+}
+
+.pts-label {
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+.level-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.level-subtitle {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: #aaa;
+}
+
+.level-subtitle span {
+    color: #fce3a1;
+    font-weight: bold;
+}
+
+/* Coluna Direita */
+.dash-column-right {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Banner de Destaque Vermelho */
+.indulgence-banner {
+    background-color: #e31b23;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.indulgence-banner h2 {
+    font-size: 28px;
+    line-height: 1;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.banner-badge {
+    background-color: #fff;
+    color: #000;
+    padding: 6px 12px;
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    width: fit-content;
+}
+
+/* Card da Barra de Progresso */
+.next-goal-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.goal-header {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #aaa;
+    margin-bottom: 12px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 18px;
+    background-color: #222;
+    border: 1px solid #333;
+    margin-bottom: 10px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: #fce3a1;
+}
+
+.goal-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #ff4a5a;
+}
+
+/* --- SECÇÃO DE RECOMPENSAS --- */
+.section-title {
+    font-size: 20px;
+    margin-bottom: 25px;
+    letter-spacing: 0px;
+}
+
+.bar-accent {
+    color: #ff4a5a;
+}
+
+.rewards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 60px;
+}
+
+.reward-card {
+    background-color: #111;
+    border: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+}
+
+.reward-image {
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.reward-info {
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.reward-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.reward-name {
+    font-size: 16px;
+    max-width: 65%;
+    line-height: 1.1;
+}
+
+.pts-tag {
+    background-color: #fce3a1;
+    color: #000;
+    font-size: 10px;
+    padding: 4px 6px;
+    font-weight: bold;
+}
+
+.reward-desc {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #888;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* Botões de Ação nos Cards */
+.btn-redeem {
+    background-color: #ffb3b7; /* Tom rosa pálido do design */
+    color: #000;
+    border: none;
+    padding: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-disabled {
+    background-color: #222;
+    color: #555;
+    border: 1px solid #333;
+    padding: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    width: 100%;
+    cursor: not-allowed;
+}
+
+/* Estado Bloqueado (Filtro Cinza) */
+.reward-card.locked .reward-image {
+    filter: grayscale(100%) brightness(50%);
+}
+
+.lock-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.reward-card.locked .pts-tag {
+    background-color: #222;
+    color: #555;
+}
+
+/* --- RODAPÉ --- */
+footer {
+    border-top: 2px solid #ff4a5a;
+    padding-top: 30px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.footer-brand {
+    max-width: 350px;
+}
+
+.footer-brand h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-brand p {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.footer-links-group {
+    display: flex;
+    gap: 50px;
+}
+
+.link-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.link-col h4 {
+    font-size: 11px;
+    color: #fff;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.link-col a {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #888;
+}
+
+.link-col a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: #444;
+    text-align: left;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 1100px) {
+    .rewards-grid { grid-template-columns: repeat(2, 1fr); }
+    .dashboard-row { flex-direction: column; }
+}
+
+@media (max-width: 750px) {
+    .sidebar { width: 70px; padding: 20px 5px; align-items: center; }
+    .logo-title, .user-slogan, .sidebar-menu span + text, .btn-order-now { display: none; }
+    .main-content { margin-left: 70px; }
+    .rewards-grid { grid-template-columns: 1fr; }
+}

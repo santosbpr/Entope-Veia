@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entope Veia - Acompanhar Pedido</title>
+    <link rel="stylesheet" href="./css/status.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <aside class="sidebar" id="global-sidebar" data-active-page="pedidos"></aside>
+
+        <main class="main-content">
+            
+            <header class="content-header">
+                <div class="track-header-left">
+                    <span class="bike-emoji">🏍️</span>
+                    <h2 class="page-title">Acompanhar Pedido <span class="order-id">#TJ-8829</span></h2>
+                </div>
+                <div class="header-right">
+                    <div class="eta-badge">⏱️ Chega em 14 mins</div>
+                    <div class="cart-icon">🛒</div>
+                </div>
+            </header>
+
+            <div class="track-grid">
+                
+                <div class="track-left-col">
+                    
+                    <div class="map-animation-container">
+                        <div class="route-badge">📍 A caminho de Rua Evergreen, 742</div>
+                        
+                        <div class="road-scene">
+                            <div class="road-lines"></div>
+                            <div class="delivery-bike-animation">🏍️💨</div>
+                        </div>
+
+                        <div class="status-pill">ENTREGA RÁPIDA EM ANDAMENTO</div>
+                    </div>
+
+                    <div class="courier-card">
+                        <div class="courier-avatar-box">
+                            <div class="courier-photo" style="background-image: url('https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80');"></div>
+                            <span class="rating-badge">4.9 ★</span>
+                        </div>
+                        <div class="courier-info">
+                            <h3>MARCUS REED</h3>
+                            <p>🚴 Pilotando uma Moto Elétrica Customizada</p>
+                            <div class="courier-actions">
+                                <button class="btn-chat">💬 CHAT</button>
+                                <button class="btn-call">📞 LIGAR</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="track-right-col">
+                    
+                    <section class="track-card order-status-timeline">
+                        <h3 class="card-title">STATUS DO PEDIDO</h3>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item done">
+                                <div class="timeline-icon">✓</div>
+                                <div class="timeline-text">
+                                    <h4>Pedido Confirmado</h4>
+                                    <p>Recebido às 19:42</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item done">
+                                <div class="timeline-icon">✓</div>
+                                <div class="timeline-text">
+                                    <h4>Entupidor de veia está Cozinhando</h4>
+                                    <p>Na chapa desde as 19:48</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item active">
+                                <div class="timeline-icon-active">🚚</div>
+                                <div class="timeline-text">
+                                    <h4>Saiu para Entrega</h4>
+                                    <p>Previsão de chegada às 20:12</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item pending">
+                                <div class="timeline-icon-pending">🏠</div>
+                                <div class="timeline-text">
+                                    <h4>Pedido Entregue</h4>
+                                    <p>Ainda não chegou ao destino</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="track-card indulgence-summary">
+                        <h3 class="card-title">SUA GORDICE</h3>
+                        
+                        <div class="item-summary-list">
+                            <div class="summary-item">
+                                <span><strong>1x</strong> The Monster Melt</span>
+                                <span>R$ 18,99</span>
+                            </div>
+                            <div class="summary-item">
+                                <span><strong>2x</strong> Batata com Sal de Lava</span>
+                                <span>R$ 11,00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span><strong>1x</strong> Bourbon Shake</span>
+                                <span>R$ 7,50</span>
+                            </div>
+                        </div>
+
+                        <div class="receipt-totals">
+                            <div class="receipt-row"><span>Subtotal</span> <span>R$ 37,49</span></div>
+                            <div class="receipt-row"><span>Taxa de Entrega</span> <span>R$ 2,99</span></div>
+                            <div class="receipt-row total-row"><span>TOTAL</span> <span>R$ 40,48</span></div>
+                        </div>
+
+                        <button class="btn-need-help">❓ PRECISA DE AJUDA?</button>
+                    </section>
+
+                </div>
+
+            </div>
+
+            <footer id="global-status-footer" class="app-footer"></footer>
+
+        </main>
+
+    </div>
+    <script src="./js/components.js"></script>
+</body>
+</html>

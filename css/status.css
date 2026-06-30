@@ -1,0 +1,544 @@
+/* --- Configurações Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Black', 'Impact', sans-serif;
+}
+
+body {
+    background-color: #0c0c0c;
+    color: #ffffff;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.app-container {
+    display: flex;
+}
+
+/* --- SIDEBAR LATERAL --- */
+.sidebar {
+    width: 250px;
+    background-color: #111111;
+    border-right: 1px solid #1a1a1a;
+    padding: 35px 25px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    z-index: 10;
+}
+
+.logo-title {
+    color: #ff4a5a;
+    font-size: 28px;
+    font-style: italic;
+    letter-spacing: -1px;
+    margin-bottom: 40px;
+}
+
+.welcome-box {
+    margin-bottom: 30px;
+}
+
+.user-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #ff4a5a;
+    margin-bottom: 12px;
+}
+
+.welcome-box h3 {
+    font-size: 18px;
+    color: #ffb3b7;
+}
+
+.welcome-box p {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: #777;
+    margin-top: 4px;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.sidebar-menu ul li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #aaa;
+}
+
+.sidebar-menu ul li.active a {
+    background-color: #fce3a1;
+    color: #000;
+}
+
+.sidebar-menu ul li a:hover:not(.active a) {
+    background-color: #161616;
+    color: #fff;
+}
+
+.btn-order-now {
+    width: 100%;
+    background-color: #e31b23;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- CONTEÚDO PRINCIPAL --- */
+.main-content {
+    margin-left: 250px;
+    flex-grow: 1;
+    padding: 30px 4%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Cabeçalho de Acompanhamento */
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #1f1f1f;
+    padding-bottom: 15px;
+}
+
+.track-header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.bike-emoji {
+    font-size: 24px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-style: italic;
+    letter-spacing: -0.5px;
+}
+
+.page-title .order-id {
+    color: #ffb3b7;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.eta-badge {
+    background-color: rgba(12, 12, 12, 0.8);
+    border: 1px solid #ff4a5a;
+    padding: 8px 16px;
+    font-size: 12px;
+    border-radius: 4px;
+    color: #ffb3b7;
+}
+
+/* Grid de Telas */
+.track-grid {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.track-left-col {
+    flex: 1.4;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.track-right-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* --- ANIMAÇÃO EM LOOP (ESTRADA E MOTOCICLETA) --- */
+.map-animation-container {
+    background-color: #111111;
+    border: 1px solid #222;
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.route-badge {
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 1px solid #444;
+    padding: 10px 15px;
+    font-size: 12px;
+    font-family: 'Arial', sans-serif;
+    color: #fce3a1;
+    width: fit-content;
+    z-index: 5;
+}
+
+/* Cenário da Estrada */
+.road-scene {
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    background-color: #181818;
+    bottom: 100px;
+    left: 0;
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Linhas tracejadas em movimento contínuo */
+.road-lines {
+    position: absolute;
+    width: 200%;
+    height: 4px;
+    background: repeating-linear-gradient(90deg, #555, #555 20px, transparent 20px, transparent 40px);
+    animation: moveRoad 1.5s linear infinite;
+}
+
+/* Efeito da moto a tremer simulando movimento real */
+.delivery-bike-animation {
+    font-size: 38px;
+    position: absolute;
+    left: 15%;
+    z-index: 4;
+    animation: bikeVibration 0.3s ease-in-out infinite alternate;
+}
+
+.status-pill {
+    background-color: #ffb3b7;
+    color: #000;
+    padding: 8px 15px;
+    font-size: 11px;
+    width: fit-content;
+    z-index: 5;
+}
+
+/* --- CARD DO ENTREGADOR (COURIER) --- */
+.courier-card {
+    background-color: #111;
+    border: 1px solid #222;
+    padding: 25px;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.courier-avatar-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.courier-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #444;
+}
+
+.rating-badge {
+    background-color: #fce3a1;
+    color: #000;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.courier-info h3 {
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    margin-bottom: 2px;
+}
+
+.courier-info p {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.courier-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.courier-actions button {
+    padding: 10px 25px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.btn-chat {
+    background-color: #fce3a1;
+    color: #000;
+    border: none;
+}
+
+.btn-call {
+    background: none;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+/* --- TIMELINE DE STATUS (DIREITA) --- */
+.track-card {
+    background-color: #111;
+    border: 1px solid #222;
+    padding: 25px;
+}
+
+.card-title {
+    font-size: 15px;
+    color: #ffb3b7;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #1f1f1f;
+    padding-bottom: 12px;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Linha Vertical Conectora */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 31px;
+    top: 15px;
+    bottom: 15px;
+    width: 2px;
+    background-color: #222;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+}
+
+.timeline-icon, .timeline-icon-active, .timeline-icon-pending {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+/* Estados Customizados */
+.timeline-item.done .timeline-icon { background-color: #fce3a1; color: #000; }
+.timeline-item.active .timeline-icon-active { background-color: #e31b23; font-size: 12px; }
+.timeline-item.pending .timeline-icon-pending { background-color: #222; color: #555; }
+
+.timeline-text h4 {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.timeline-text p {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #666;
+}
+
+.timeline-item.pending .timeline-text h4 { color: #555; }
+
+/* --- RESUMO DO PEDIDO --- */
+.item-summary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-bottom: 1px dashed #222;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: #aaa;
+}
+
+.summary-item strong {
+    color: #fff;
+}
+
+.receipt-totals {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.receipt-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: #666;
+}
+
+.receipt-row.total-row {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: 20px;
+    color: #fff;
+    border-top: 1px solid #222;
+    padding-top: 10px;
+}
+
+.btn-need-help {
+    width: 100%;
+    background-color: #1e1e1e;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 14px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- ANIMAÇÕES KEYFRAMES --- */
+@keyframes moveRoad {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-40px); }
+}
+
+@keyframes bikeVibration {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-3px); }
+}
+
+/* --- RODAPÉ --- */
+.app-footer {
+    border-top: 2px solid #e31b23;
+    padding-top: 30px;
+    margin-top: auto;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.footer-brand p {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #666;
+    max-width: 380px;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.footer-links-group {
+    display: flex;
+    gap: 50px;
+}
+
+.link-col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.link-col h4 {
+    font-size: 11px;
+    color: #ffb3b7;
+    margin-bottom: 4px;
+}
+
+.link-col a {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #777;
+}
+
+.link-col a:hover { color: #fff; }
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: #444;
+    border-top: 1px solid #161616;
+    padding: 20px 0;
+}
+
+/* --- RESPONSIVIDADE MOBILE --- */
+@media (max-width: 768px) {
+    .app-container { flex-direction: column; }
+    
+    .sidebar {
+        width: 100%; height: 65px; position: fixed; bottom: 0; left: 0; top: auto; right: 0;
+        background-color: #0c0c0c; border-top: 1px solid #1a1a1a; padding: 0 10px;
+        display: flex; flex-direction: row; justify-content: center; align-items: center; z-index: 9999;
+    }
+    .sidebar .brand-section, .sidebar .welcome-box, .sidebar .sidebar-footer { display: none !important; }
+    .sidebar-menu { width: 100%; }
+    .sidebar-menu ul { flex-direction: row; justify-content: space-around; gap: 0; }
+    .sidebar-menu ul li a { flex-direction: column; gap: 4px; font-size: 10px; }
+    .sidebar-menu ul li.active a { background: none; color: #fce3a1; }
+
+    .main-content { margin-left: 0; padding: 20px 16px 90px 16px; }
+    .track-grid { flex-direction: column; gap: 25px; }
+    .track-left-col, .track-right-col { width: 100%; }
+    
+    .courier-card { flex-direction: column; text-align: center; }
+    .courier-actions { justify-content: center; }
+    
+    footer, .footer-top { flex-direction: column; gap: 25px; }
+    .footer-links-group { width: 100%; justify-content: space-between; }
+}

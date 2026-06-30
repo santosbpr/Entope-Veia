@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Joint - Endereço de Entrega</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="./css/endereco.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <aside class="sidebar" id="global-sidebar" data-active-page="perfil"></aside>
+
+        <main class="main-content">
+            
+            <header class="content-header">
+                <div class="header-nav-links">
+                    <a href="#">Menu</a>
+                    <a href="#">Orders</a>
+                    <a href="#">Points</a>
+                </div>
+                <div class="cart-icon">🛒</div>
+            </header>
+
+            <h2 class="page-title">ENDEREÇO DE ENTREGA</h2>
+
+            <div class="delivery-grid">
+                
+                <div class="delivery-left">
+                    
+                    <div class="map-wrapper">
+                        <div class="search-bar-container">
+                            <span class="search-icon">🔍</span>
+                            <input type="text" id="address-search" placeholder="Buscar novo endereço (Pressione Enter)..." onkeydown="searchAddress(event)">
+                        </div>
+                        <div id="map"></div>
+                    </div>
+
+                    <section class="saved-addresses-section">
+                        <h3>📋 ENDEREÇOS SALVOS</h3>
+                        <div class="address-list">
+                            
+                            <div class="address-card" onclick="selectSavedAddress(-23.5616, -46.6560, 'Casa', 'Rua das Flores, 123 - Jardins')">
+                                <div class="icon-box icon-home">🏠</div>
+                                <div class="address-text">
+                                    <h4>Casa</h4>
+                                    <p>Rua das Flores, 123 - Jardins</p>
+                                </div>
+                            </div>
+
+                            <div class="address-card" onclick="selectSavedAddress(-23.5562, -46.6582, 'Trabalho', 'Av. Paulista, 1000 - 15º Andar')">
+                                <div class="icon-box icon-work">💼</div>
+                                <div class="address-text">
+                                    <h4>Trabalho</h4>
+                                    <p>Av. Paulista, 1000 - 15º Andar</p>
+                                </div>
+                            </div>
+
+                            <div class="address-card" onclick="selectSavedAddress(-23.5631, -46.6617, 'Namorada', 'Al. Santos, 45 - Apto 42')">
+                                <div class="icon-box icon-love">❤️</div>
+                                <div class="address-text">
+                                    <h4>Namorada</h4>
+                                    <p>Al. Santos, 45 - Apto 42</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+                </div>
+
+                <div class="delivery-right">
+                    
+                    <div class="selection-box">
+                        <span class="box-label">LOCAL SELECIONADO:</span>
+                        <p id="selected-address-display">Rua da Consolação, 2345 - Consolação, São Paulo - SP</p>
+                    </div>
+
+                    <button class="btn-confirm-location" onclick="confirmLocation()">
+                        CONFIRMAR LOCALIZAÇÃO
+                    </button>
+
+                </div>
+
+            </div>
+
+            <footer id="global-endereco-footer"></footer>
+
+        </main>
+
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Inicializa o mapa focado em São Paulo (Avenida Paulista)
+        const map = L.map('map').setView([-23.5562, -46.6582], 15);
+
+        // Renderiza camadas do OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Ícone personalizado amarelo combinando com o mockup
+        const customIcon = L.icon({
+            iconUrl: 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+            iconSize: [38, 38],
+            iconAnchor: [19, 38],
+            popupAnchor: [0, -34]
+        });
+
+        // Adiciona marcador arrastável
+        const marker = L.marker([-23.5562, -46.6582], { icon: customIcon, draggable: true }).addTo(map);
+        marker.bindPopup("<b>Entregar Aqui</b>").openPopup();
+
+        // Evento ao arrastar o pino
+        marker.on('dragend', function (e) {
+            const position = marker.getLatLng();
+            updateAddressDisplay(position.lat, position.lng);
+        });
+
+        // Evento ao clicar no mapa
+        map.on('click', function (e) {
+            marker.setLatLng(e.latlng);
+            updateAddressDisplay(e.latlng.lat, e.latlng.lng);
+        });
+
+        // Simulação de Geocoding Reversa (Conversão de coordenadas para texto)
+        function updateAddressDisplay(lat, lng) {
+            // Nota: Em produção, você chamaria uma API de Geocoding real aqui
+            document.getElementById('selected-address-display').innerText = `Coordenadas selecionadas: Lat ${lat.toFixed(4)}, Lng ${lng.toFixed(4)} (Buscando endereço exato...)`;
+        }
+
+        // Função ao clicar em um endereço salvo
+        function selectSavedAddress(lat, lng, label, address) {
+            const latLng = new L.LatLng(lat, lng);
+            map.panTo(latLng);
+            marker.setLatLng(latLng);
+            document.getElementById('selected-address-display').innerText = `${label}: ${address}`;
+        }
+
+        // Busca básica por string simulada
+        function searchAddress(event) {
+            if (event.key === 'Enter') {
+                const query = document.getElementById('address-search').value;
+                if(query.trim() !== "") {
+                    alert(`Simulando busca para: "${query}". Em produção, integraria com API Nominatim/Google.`);
+                }
+            }
+        }
+
+        function confirmLocation() {
+            const address = document.getElementById('selected-address-display').innerText;
+            alert(`Localização confirmada!\n${address}`);
+        }
+    </script>
+    <script src="./js/components.js"></script>
+</body>
+</html>

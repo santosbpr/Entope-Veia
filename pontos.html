@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Joint - Loyalty Hub</title>
+    <link rel="stylesheet" href="./css/pontos.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <aside class="sidebar" id="global-sidebar" data-active-page="pontos"></aside>
+
+        <main class="main-content">
+            
+            <header class="content-header">
+                <h2 class="page-title">LOYALTY HUB</h2>
+                <div class="header-right">
+                    <div class="pts-badge">⭐ 450 PTS</div>
+                    <div class="cart-icon">🛒</div>
+                </div>
+            </header>
+
+            <div class="dashboard-row">
+                
+                <div class="dash-card progress-circle-card">
+                    <div class="svg-container">
+                        <svg width="180" height="180" viewBox="0 0 180 180">
+                            <circle class="bg" cx="90" cy="90" r="70"></circle>
+                            <circle class="prog" cx="90" cy="90" r="70"></circle>
+                        </svg>
+                        <div class="circle-text">
+                            <span class="pts-number">450</span>
+                            <span class="pts-label">POINTS</span>
+                        </div>
+                    </div>
+                    <h3 class="level-title">Level: Burger Master</h3>
+                    <p class="level-subtitle">Only 50 pts away from a <span>Mega Shake!</span></p>
+                </div>
+
+                <div class="dash-column-right">
+                    
+                    <div class="indulgence-banner">
+                        <h2>INDULGENCE<br>PAYS OFF.</h2>
+                        <div class="banner-badge">Cada R$ 1,00 gasto vale 1 ponto.</div>
+                    </div>
+
+                    <div class="dash-card next-goal-card">
+                        <div class="goal-header">
+                            <span>📈 NEXT GOAL PROGRESS</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: 90%;"></div>
+                        </div>
+                        <div class="goal-footer">
+                            <span>0 PTS</span>
+                            <span>500 PTS (MEGA SHAKE)</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <section class="rewards-section">
+                <h2 class="section-title"><span class="bar-accent">|</span> AVAILABLE REWARDS</h2>
+                
+                <div class="rewards-grid">
+                    
+                    <div class="reward-card">
+                        <div class="reward-image" style="background-image: url('https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=400&q=80');"></div>
+                        <div class="reward-info">
+                            <div class="reward-header-row">
+                                <h3 class="reward-name">Free Soda</h3>
+                                <span class="pts-tag">100 PTS</span>
+                            </div>
+                            <p class="reward-desc">Any size, ice-cold indulgence to wash down your meal.</p>
+                            <button class="btn-redeem">REDEEM</button>
+                        </div>
+                    </div>
+
+                    <div class="reward-card">
+                        <div class="reward-image" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80');"></div>
+                        <div class="reward-info">
+                            <div class="reward-header-row">
+                                <h3 class="reward-name">Classic Burger</h3>
+                                <span class="pts-tag">350 PTS</span>
+                            </div>
+                            <p class="reward-desc">The legend itself. 100% beef, 100% satisfaction guaranteed.</p>
+                            <button class="btn-redeem">REDEEM</button>
+                        </div>
+                    </div>
+
+                    <div class="reward-card locked">
+                        <div class="reward-image" style="background-image: url('https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=400&q=80');">
+                            <div class="lock-overlay">LOCKED</div>
+                        </div>
+                        <div class="reward-info">
+                            <div class="reward-header-row">
+                                <h3 class="reward-name">Mega Shake</h3>
+                                <span class="pts-tag">500 PTS</span>
+                            </div>
+                            <p class="reward-desc">A sugar rush that dreams are made of. Choice of 5 flavors.</p>
+                            <button class="btn-disabled" disabled>NOT ENOUGH POINTS</button>
+                        </div>
+                    </div>
+
+                    <div class="reward-card locked">
+                        <div class="reward-image" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80');">
+                            <div class="lock-overlay">LOCKED</div>
+                        </div>
+                        <div class="reward-info">
+                            <div class="reward-header-row">
+                                <h3 class="reward-name">Party Pizza</h3>
+                                <span class="pts-tag">1000 PTS</span>
+                            </div>
+                            <p class="reward-desc">Bring the crew together with a giant 16" cheesy feast.</p>
+                            <button class="btn-disabled" disabled>NOT ENOUGH POINTS</button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <footer id="global-pontos-footer"></footer>
+
+        </main>
+
+    </div>
+    <script src="./js/components.js"></script>
+</body>
+</html>

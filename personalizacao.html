@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entope Veia - O Entupidor</title>
+    <!-- Ligação para o ficheiro CSS externo -->
+    <link rel="stylesheet" href="./css/personalizacao.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- SIDEBAR LATERAL (Atualizado para Entope Veia) -->
+        <aside class="sidebar" id="global-sidebar" data-active-page="menu"></aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+            
+            <!-- BARRA DE TOPO COM PESQUISA -->
+            <header class="content-header">
+                <h2 class="header-product-name">O ENTUPIDOR</h2>
+                <div class="header-right">
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" placeholder="Search craving...">
+                    </div>
+                    <div class="cart-icon">🛒</div>
+                </div>
+            </header>
+
+            <!-- DETALHES DO PRODUTO -->
+            <div class="product-container">
+                
+                <!-- Imagem do Burger -->
+                <div class="product-image-side">
+                    <div class="main-burger-card">
+                        <span class="badge-best-seller">BEST SELLER</span>
+                        <div class="burger-img" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80');"></div>
+                    </div>
+                </div>
+
+                <!-- Info e Descrição -->
+                <div class="product-info-side">
+                    <h2 class="product-title">O ENTUPIDOR</h2>
+                    <p class="product-description">
+                        The ultimate challenge. Triple smash beef patties (150g each), quadruple cheddar, double smoked bacon, crispy onion rings, and our secret "Veia" sauce in a butter-roasted brioche bun.
+                    </p>
+                    <div class="price-calories-row">
+                        <span class="product-price">R$ 54,90</span>
+                        <span class="calories-badge">🔥 1,250 CAL</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CUSTOMIZAÇÃO (ADICIONAR / RETIRAR) -->
+            <div class="customization-grid">
+                
+                <!-- Adicionais (Turbine seu Burger) -->
+                <div class="custom-column">
+                    <h3 class="custom-section-title"><span class="accent-bar red">|</span> TURBINE SEU BURGER</h3>
+                    <div class="custom-options-list">
+                        
+                        <div class="addon-card">
+                            <div class="addon-thumb" style="background-image: url('https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=100&q=80');"></div>
+                            <div class="addon-info">
+                                <h4>DOUBLE BACON</h4>
+                                <p>+ R$ 8,50</p>
+                            </div>
+                            <button class="btn-addon-add">+</button>
+                        </div>
+
+                        <div class="addon-card">
+                            <div class="addon-thumb" style="background-image: url('https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=100&q=80');"></div>
+                            <div class="addon-info">
+                                <h4>EXTRA CHEDDAR</h4>
+                                <p>+ R$ 6,00</p>
+                            </div>
+                            <button class="btn-addon-add">+</button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Remoções (Retirar do Burger) -->
+                <div class="custom-column">
+                    <h3 class="custom-section-title"><span class="accent-bar yellow">|</span> RETIRAR DO BURGER</h3>
+                    <div class="remove-options-grid">
+                        
+                        <label class="remove-item-box">
+                            <span>SEM CEBOLA</span>
+                            <input type="checkbox">
+                            <span class="custom-checkbox"></span>
+                        </label>
+
+                        <label class="remove-item-box">
+                            <span>SEM PICLES</span>
+                            <input type="checkbox">
+                            <span class="custom-checkbox"></span>
+                        </label>
+
+                        <label class="remove-item-box">
+                            <span>SEM MOLHO</span>
+                            <input type="checkbox">
+                            <span class="custom-checkbox"></span>
+                        </label>
+
+                        <label class="remove-item-box">
+                            <span>SEM BACON</span>
+                            <input type="checkbox">
+                            <span class="custom-checkbox"></span>
+                        </label>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- COMPRA E QUANTIDADE -->
+            <div class="action-footer-bar">
+                <div class="quantity-selector">
+                    <button onclick="changeQty(-1)">−</button>
+                    <span id="qty-value">1</span>
+                    <button onclick="changeQty(1)">+</button>
+                </div>
+
+                <div class="total-order-display">
+                    <span class="total-label">TOTAL ORDER</span>
+                    <span class="total-price-val" id="total-price">R$ 54,90</span>
+                </div>
+
+                <button class="btn-add-to-cart">
+                    <span>🛒</span> ADICIONAR AO CARRINHO
+                </button>
+            </div>
+
+            <!-- RODAPÉ (Atualizado para Entope Veia) -->
+            <footer id="global-personalizacao-footer" class="app-footer"></footer>
+
+        </main>
+
+    </div>
+
+    <!-- SCRIPT DE FUNCIONALIDADE DA QUANTIDADE -->
+    <script>
+        const basePrice = 54.90;
+        let currentQty = 1;
+
+        function changeQty(amount) {
+            currentQty += amount;
+            if (currentQty < 1) currentQty = 1;
+            
+            document.getElementById('qty-value').innerText = currentQty;
+            
+            const newTotal = (basePrice * currentQty).toFixed(2);
+            document.getElementById('total-price').innerText = `R$ ${newTotal.replace('.', ',')}`;
+        }
+    </script>
+    <script src="./js/components.js"></script>
+</body>
+</html>

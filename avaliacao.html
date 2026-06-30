@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entope Veia - Avaliar Pedido</title>
+    <link rel="stylesheet" href="./css/avaliacao.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <aside class="sidebar" id="global-sidebar" data-active-page="pedidos"></aside>
+
+        <main class="main-content">
+            
+            <h2 class="page-title">AVALIAR PEDIDO</h2>
+
+            <div class="dashboard-grid">
+                
+                <section class="review-form-column">
+                    
+                    <div class="product-summary-card">
+                        <div class="product-thumb" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=300&q=80');"></div>
+                        <div class="product-details">
+                            <span class="order-number">PEDIDO #4829</span>
+                            <h3>X-INFARTO DUPLO</h3>
+                            <p class="order-items">X-Infarto Duplo, Fritas do Além, Soda Cáustica</p>
+                        </div>
+                    </div>
+
+                    <div class="rating-questions-card">
+                        
+                        <div class="question-group">
+                            <p class="question-label">O que achou do banquete?</p>
+                            <div class="rating-icons">
+                                <span class="icon active">🔥</span>
+                                <span class="icon active">🔥</span>
+                                <span class="icon active">🔥</span>
+                                <span class="icon">🔥</span>
+                                <span class="icon">🔥</span>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <p class="question-label">A entrega foi rápida?</p>
+                            <div class="rating-icons">
+                                <span class="icon active">⚡</span>
+                                <span class="icon active">⚡</span>
+                                <span class="icon active">⚡</span>
+                                <span class="icon active">⚡</span>
+                                <span class="icon">⚡</span>
+                            </div>
+                        </div>
+
+                        <div class="comment-group">
+                            <label class="question-label" for="comments">COMENTÁRIOS</label>
+                            <textarea id="comments" placeholder="Conte o que achou da gordice..."></textarea>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section class="action-column">
+                    
+                    <div class="photo-upload-card">
+                        <p class="upload-title">GORDICE NA TELA</p>
+                        <div class="uploaded-preview-box">
+                            <div class="preview-img" style="background-image: url('https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=400&q=80');"></div>
+                        </div>
+                        <button class="btn-change-photo">TROCAR FOTO</button>
+                    </div>
+
+                    <p class="helper-text">Sua avaliação ajuda outros viciados em gordice!</p>
+
+                    <button class="btn-submit-review">ENVIAR AVALIAÇÃO</button>
+
+                </section>
+
+            </div>
+
+            <footer id="global-avaliacao-footer"></footer>
+
+        </main>
+
+    </div>
+    <script src="./js/components.js"></script>
+</body>
+</html>

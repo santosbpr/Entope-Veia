@@ -1,0 +1,391 @@
+/* --- Configurações Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Black', 'Impact', sans-serif;
+}
+
+body {
+    background-color: #0c0c0c;
+    color: #ffffff;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.app-container {
+    display: flex;
+}
+
+/* --- SIDEBAR LATERAL --- */
+.sidebar {
+    width: 250px;
+    background-color: #111111;
+    border-right: 1px solid #1a1a1a;
+    padding: 35px 25px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    z-index: 10;
+}
+
+.logo-title {
+    color: #ff4a5a;
+    font-size: 28px;
+    font-style: italic;
+    letter-spacing: -1px;
+    margin-bottom: 40px;
+}
+
+.welcome-box {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.user-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #ff4a5a;
+    margin-bottom: 15px;
+}
+
+.welcome-box h3 {
+    font-size: 20px;
+    color: #ffb3b7;
+}
+
+.welcome-box p {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: #777;
+    margin-top: 4px;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.sidebar-menu ul li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #aaa;
+}
+
+.sidebar-menu ul li.active a {
+    background-color: #fce3a1;
+    color: #000;
+}
+
+.sidebar-menu ul li a:hover:not(.active a) {
+    background-color: #161616;
+    color: #fff;
+}
+
+.btn-order-now {
+    width: 100%;
+    background-color: #e31b23;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- CONTEÚDO PRINCIPAL --- */
+.main-content {
+    margin-left: 250px;
+    flex-grow: 1;
+    padding: 30px 5%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header-nav-links {
+    display: flex;
+    gap: 25px;
+    font-size: 15px;
+}
+
+.cart-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.page-title {
+    font-size: 26px;
+    color: #ffb3b7;
+    letter-spacing: -0.5px;
+    margin-bottom: 30px;
+}
+
+/* Painel Grid Flexível */
+.delivery-grid {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.delivery-left {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.delivery-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- CONTAINER MAPA COM FILTROS NOTURNOS --- */
+.map-wrapper {
+    position: relative;
+    border: 2px solid #e31b23;
+}
+
+#map {
+    width: 100%;
+    height: 380px;
+    background-color: #222;
+    /* Filtro CSS para transformar o mapa claro original em modo noturno neon cyberpunk */
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(110%) saturate(150%);
+}
+
+.search-bar-container {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 1000;
+    background-color: rgba(12, 12, 12, 0.9);
+    border: 1px solid #444;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: calc(100% - 30px);
+    max-width: 400px;
+}
+
+.search-bar-container input {
+    background: none;
+    border: none;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    width: 100%;
+}
+
+.search-bar-container input:focus {
+    outline: none;
+}
+
+/* --- SEÇÃO ENDEREÇOS SALVOS --- */
+.saved-addresses-section h3 {
+    font-size: 15px;
+    color: #fce3a1;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.address-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.address-card {
+    background-color: #161616;
+    border: 1px solid #222;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.address-card:hover {
+    border-color: #fce3a1;
+    background-color: #1c1c1c;
+}
+
+.icon-box {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+.icon-home { background-color: #b31218; }
+.icon-work { background-color: #c2185b; }
+.icon-love { background-color: #d32f2f; }
+
+.address-text h4 {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.address-text p {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #888;
+}
+
+/* --- COLUNA DIREITA DE CONFIRMAÇÃO --- */
+.selection-box {
+    background-color: #161616;
+    border: 1px solid #333;
+    padding: 25px;
+    min-height: 120px;
+}
+
+.box-label {
+    font-size: 11px;
+    color: #fce3a1;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.selection-box p {
+    font-family: 'Georgia', serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+.btn-confirm-location {
+    width: 100%;
+    background-color: #fce3a1;
+    color: #000;
+    border: none;
+    padding: 22px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #e31b23;
+    transition: 0.1s;
+}
+
+.btn-confirm-location:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #e31b23;
+}
+
+/* --- RODAPÉ --- */
+footer {
+    border-top: 2px solid #e31b23;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: auto;
+}
+
+.footer-brand h3 {
+    font-size: 24px;
+    font-style: italic;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.footer-brand p {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #666;
+    max-width: 380px;
+    line-height: 1.5;
+}
+
+.footer-columns {
+    display: flex;
+    gap: 50px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-col h4 {
+    font-size: 11px;
+    color: #ffb3b7;
+    margin-bottom: 4px;
+}
+
+.footer-col a {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #777;
+}
+
+.footer-col a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: #444;
+    margin-top: 30px;
+    padding-bottom: 10px;
+}
+
+/* ==========================================================================
+   MÍDIA QUERY: RESPONSIVIDADE MOBILE COMPLETA
+   ========================================================================== */
+@media (max-width: 768px) {
+    .app-container { flex-direction: column; }
+    
+    /* Converte Sidebar em Bottom Nav */
+    .sidebar {
+        width: 100%; height: 65px; position: fixed; bottom: 0; left: 0; top: auto; right: 0;
+        background-color: #0c0c0c; border-top: 1px solid #1a1a1a; padding: 0 10px;
+        display: flex; flex-direction: row; justify-content: center; align-items: center; z-index: 9999;
+    }
+    .sidebar .brand-section, .sidebar .welcome-box, .sidebar .sidebar-footer { display: none !important; }
+    .sidebar-menu { width: 100%; }
+    .sidebar-menu ul { flex-direction: row; justify-content: space-around; gap: 0; }
+    .sidebar-menu ul li a { flex-direction: column; gap: 4px; font-size: 10px; }
+    .sidebar-menu ul li.active a { background: none; color: #fce3a1; }
+
+    .main-content { margin-left: 0; padding: 20px 16px 90px 16px; }
+    .delivery-grid { flex-direction: column; gap: 25px; }
+    .delivery-left, .delivery-right { width: 100%; }
+    #map { height: 280px; }
+    footer { flex-direction: column; gap: 30px; }
+    .footer-columns { width: 100%; justify-content: space-between; }
+}

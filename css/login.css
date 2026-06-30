@@ -1,0 +1,319 @@
+/* --- Configurações Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Black', 'Impact', sans-serif;
+}
+
+body {
+    background-color: #0c0c0c;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estrutura Dividida (Split Screen) */
+.split-screen {
+    display: flex;
+    flex: 1;
+}
+
+/* --- LADO ESQUERDO (Imagem + Identidade) --- */
+.left-side {
+    flex: 1.2;
+    background: linear-gradient(to right, rgba(12, 12, 12, 0.2) 40%, rgba(12, 12, 12, 0.95)), 
+                url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=80') center/cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 60px 8%;
+}
+
+.hero-text-container {
+    max-width: 500px;
+    margin-bottom: 40px;
+}
+
+.brand-logo {
+    font-size: 54px;
+    letter-spacing: -2px;
+    line-height: 1;
+    background: linear-gradient(135deg, #fff 70%, #fce3a1);
+    -webkit-background-clip: text;        /* Ajustar futuramente!!! */
+    -webkit-text-fill-color: transparent; /* Ajustar futuramente!!! */
+}
+
+.brand-slogan {
+    font-size: 32px;
+    font-style: italic;
+    margin: 15px 0 5px 0;
+    letter-spacing: -1px;
+}
+
+.brand-warning {
+    color: #ff2a3a;
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+/* Badges decorativas */
+.badge-row {
+    display: flex;
+    gap: 10px;
+}
+
+.badge {
+    padding: 6px 15px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.badge-yellow {
+    background-color: #fce3a1;
+    color: #000;
+}
+
+.badge-red {
+    background-color: #e31b23;
+    color: #fff;
+}
+
+/* --- LADO DIREITO (Autenticação) --- */
+.right-side {
+    flex: 0.8;
+    background-color: #0c0c0c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* Linha de Abas Alternáveis */
+.auth-tabs {
+    display: flex;
+    border-bottom: 2px solid #222;
+    margin-bottom: 35px;
+}
+
+.tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+}
+
+.tab-btn.active {
+    color: #fce3a1;
+    border-bottom: 3px solid #fce3a1;
+    margin-bottom: -2px;
+}
+
+/* Inputs e Formulários */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #a0a0a0;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    background-color: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    padding: 16px;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.input-group input:focus {
+    outline: 1px solid #fce3a1;
+    background-color: #222;
+}
+
+/* Utilitários ocultos */
+.hidden {
+    display: none !important;
+}
+
+/* Opções de Remember/Forgot */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #a0a0a0;
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: #fce3a1;
+}
+
+/* Botão de Envio */
+.btn-primary {
+    width: 100%;
+    background-color: #e31b23;
+    color: #fff;
+    border: none;
+    padding: 18px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #b31218;
+}
+
+/* Divisor Visual */
+.social-divider {
+    text-align: center;
+    margin: 30px 0 20px 0;
+    position: relative;
+}
+
+.social-divider::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: #222;
+    z-index: 1;
+}
+
+.social-divider span {
+    background-color: #0c0c0c;
+    padding: 0 15px;
+    font-size: 10px;
+    color: #555;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Botões Sociais */
+.social-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.btn-social {
+    flex: 1;
+    background-color: #222;
+    border: 1px solid #2a2a2a;
+    color: #fff;
+    padding: 14px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 4px;
+    font-family: 'Arial', sans-serif;
+}
+
+.btn-social img {
+    width: 16px;
+    height: 16px;
+}
+
+.btn-social:hover {
+    background-color: #2a2a2a;
+}
+
+/* Aviso Legal */
+.legal-disclaimer {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: #555;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.legal-disclaimer a {
+    color: #fce3a1;
+    text-decoration: underline;
+}
+
+/* --- RODAPÉ FIXO --- */
+.login-footer {
+    background-color: #050505;
+    border-top: 1px solid #111;
+    padding: 25px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-brand {
+    font-size: 14px;
+    color: #ff2a3a;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: #666;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.footer-copy {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: #444;
+}
+
+/* --- ADAPTAÇÃO MOBILE --- */
+@media (max-width: 850px) {
+    .split-screen { flex-direction: column; }
+    .left-side { padding: 80px 40px 40px 40px; }
+    .right-side { padding: 40px 20px; }
+    .login-footer { flex-direction: column; gap: 15px; text-align: center; }
+}

@@ -1,0 +1,439 @@
+/* --- Configurações Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Black', 'Impact', sans-serif;
+}
+
+body {
+    background-color: #0c0c0c;
+    color: #ffffff;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.app-container {
+    display: flex;
+}
+
+/* --- SIDEBAR LATERAL --- */
+.sidebar {
+    width: 250px;
+    background-color: #111111;
+    border-right: 1px solid #1a1a1a;
+    padding: 35px 25px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    z-index: 10;
+}
+
+.logo-title {
+    color: #ff4a5a;
+    font-size: 28px;
+    font-style: italic;
+    letter-spacing: -1px;
+    margin-bottom: 40px;
+}
+
+.welcome-box {
+    margin-bottom: 30px;
+}
+
+.welcome-box h3 {
+    font-size: 18px;
+    color: #ffb3b7;
+}
+
+.welcome-box p {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: #777;
+    margin-top: 4px;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.sidebar-menu ul li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #aaa;
+}
+
+.sidebar-menu ul li.active a {
+    background-color: #fce3a1;
+    color: #000;
+}
+
+.sidebar-menu ul li a:hover:not(.active a) {
+    background-color: #161616;
+    color: #fff;
+}
+
+.btn-order-now {
+    width: 100%;
+    background-color: #e31b23;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- CONTEÚDO PRINCIPAL --- */
+.main-content {
+    margin-left: 250px;
+    flex-grow: 1;
+    padding: 30px 5%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.page-title {
+    font-size: 40px;
+    font-style: italic;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+}
+
+/* Painel Grid Flexível */
+.checkout-grid {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.checkout-left {
+    flex: 1.4;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.checkout-right {
+    flex: 1;
+}
+
+/* Cards do Checkout */
+.checkout-card {
+    background-color: #111111;
+    border: 1px solid #222222;
+    padding: 25px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #222;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.card-header h3 {
+    font-size: 15px;
+    color: #fce3a1;
+    letter-spacing: 0.5px;
+}
+
+/* Itens da Lista de Pedidos */
+.item-count {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: #888;
+}
+
+.item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.item-thumb {
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #222;
+}
+
+.item-info {
+    flex-grow: 1;
+}
+
+.item-info h4 {
+    font-size: 14px;
+    letter-spacing: 0px;
+    margin-bottom: 2px;
+}
+
+.item-info p {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #777;
+}
+
+.item-price {
+    font-size: 14px;
+    color: #ffb3b7;
+}
+
+/* Seção de Endereço */
+.btn-change {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: #ffb3b7;
+    text-decoration: underline;
+}
+
+.address-content {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.geo-icon {
+    font-size: 18px;
+    color: #ff4a5a;
+}
+
+.address-details h4 {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.address-details p {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: #aaa;
+}
+
+.address-details .delivery-note {
+    font-style: italic;
+    color: #fce3a1;
+    margin-top: 6px;
+    font-weight: normal;
+}
+
+/* --- MÉTODOS DE PAGAMENTO --- */
+.payment-title {
+    font-size: 15px;
+    color: #fce3a1;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 15px;
+}
+
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    background-color: #161616;
+    border: 1px solid #222;
+    padding: 15px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+}
+
+.payment-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Elemento personalizado para simular o botão circular do design */
+.custom-radio {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #555;
+    border-radius: 50%;
+    margin-right: 15px;
+    display: inline-block;
+    position: relative;
+}
+
+.payment-option input[type="radio"]:checked + .custom-radio {
+    border-color: #fce3a1;
+    background-color: #fce3a1;
+}
+
+/* Altera a borda do bloco inteiro caso esteja selecionado */
+.payment-option:has(input[type="radio"]:checked) {
+    border-color: #fce3a1;
+}
+
+.payment-icon {
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+.payment-text h4 {
+    font-size: 14px;
+}
+
+.payment-text p {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: #777;
+    margin-top: 2px;
+}
+
+/* Seção de Totais */
+.totals-section {
+    border-top: 1px solid #222;
+    padding-top: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.free-text {
+    color: #fce3a1;
+    font-weight: bold;
+}
+
+.final-total {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: 20px;
+    color: #fff;
+    border-top: 1px dashed #333;
+    padding-top: 12px;
+    margin-top: 4px;
+}
+
+.total-price {
+    color: #ffb3b7;
+}
+
+/* Botão de Submissão */
+.btn-finalize {
+    width: 100%;
+    background-color: #e31b23;
+    color: #fff;
+    border: none;
+    padding: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    letter-spacing: -0.5px;
+}
+
+.btn-finalize:hover {
+    background-color: #b31218;
+}
+
+.terms-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: #555;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* --- RODAPÉ --- */
+footer {
+    margin-top: auto;
+    border-top: 2px solid #e31b23;
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-brand p {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: #555;
+}
+
+.footer-columns {
+    display: flex;
+    gap: 40px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.footer-col h4 {
+    font-size: 11px;
+    color: #ffb3b7;
+    margin-bottom: 4px;
+}
+
+.footer-col a {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #777;
+}
+
+.footer-col a:hover {
+    color: #fff;
+}
+
+/* --- RESPONSIVIDADE BRUTA --- */
+@media (max-width: 1024px) {
+    .checkout-grid { flex-direction: column; }
+}
+
+@media (max-width: 768px) {
+    .sidebar { width: 70px; padding: 20px 5px; align-items: center; }
+    .logo-title, .welcome-box, .sidebar-menu span + text, .btn-order-now { display: none; }
+    .main-content { margin-left: 70px; }
+    footer { flex-direction: column-reverse; gap: 20px; }
+}
