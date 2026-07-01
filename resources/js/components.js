@@ -323,11 +323,11 @@ const components = {
         return `
             <div class="brand-section">
                 <h1 class="logo-title">ENTOPE VEIA</h1>
-                <p class="user-slogan">Stay Hungry</p>
+                <p class="user-slogan">TENHA FOME!</p>
             </div>
 
             <div class="welcome-box">
-                <div class="user-avatar" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80');"></div>
+                <div class="user-avatar" style="background-image: url('vendors/img/cliente-pic.jpeg');"></div>
                 <h3>Bem-vindo de volta</h3>
                 <p class="user-level">Gordice Level: Pro</p>
             </div>
@@ -339,7 +339,7 @@ const components = {
             </nav>
 
             <div class="sidebar-footer">
-                <button class="btn-order-now" onclick="window.location.href='index.html'">ORDER NOW</button>
+                <button class="btn-order-now" onclick="window.location.href='index.html'">PEÇA AGORA</button>
             </div>
         `;
     },
