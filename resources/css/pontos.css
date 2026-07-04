@@ -169,13 +169,30 @@ a {
 .svg-container svg circle.bg {
     stroke: #222;
 }
-
+/* --- Animação do Círculo de Progresso (SVG) --- */
 .svg-container svg circle.prog {
     stroke: #fce3a1;
     stroke-linecap: round;
     stroke-dasharray: 440;
-    stroke-dashoffset: 44; /* Representa os 450 de 500 totais */
+    /* Começa no 440 (totalmente vazio) */
+    stroke-dashoffset: 440; 
+    /* Chama a animação 'fillCircle' durando 2s com desaceleração (ease-out) */
+    /* animation: fillCircle 6s ease-out forwards;  */
 }
+/* .svg-container svg circle.prog {
+    stroke: #fce3a1;
+    stroke-linecap: round;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 44; Representa os 450 de 500 totais
+} */
+@keyframes fillCircle {
+    to {
+        /* Vai até o 44 (que representa os 450 de 500 pontos) */
+        stroke-dashoffset: 44; 
+    }
+}
+
+
 
 .circle-text {
     position: absolute;
@@ -269,9 +286,25 @@ a {
     margin-bottom: 10px;
 }
 
+/* .progress-bar-fill {
+    height: 100%;
+    background-color: #fce3a1;
+} */
+
+/* --- Animação da Barra de Progresso Linear --- */
 .progress-bar-fill {
     height: 100%;
     background-color: #fce3a1;
+    /* Começa com largura 0 */
+    width: 0%; 
+    /* Chama a animação 'fillBar' sincronizada com o círculo */
+    animation: fillBar 6s ease-out forwards;
+}
+@keyframes fillBar {
+    to {
+        /* Vai até os 90% definidos no seu layout */
+        width: 90%; 
+    }
 }
 
 .goal-footer {
