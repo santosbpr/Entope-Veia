@@ -51,11 +51,11 @@
                             <span>PRÓXIMO OBJETIVO</span>
                         </div>
                         <div class="progress-bar-container">
-                            <div class="progress-bar-fill" style="width: 90%;"></div>
+                            <div class="progress-bar-fill" ></div>
                         </div>
                         <div class="goal-footer">
                             <span>0 PTS</span>
-                            <span>500 PTS (MEGA SHAKE)</span>
+                            <span>600 PTS</span>
                         </div>
                     </div>
 
@@ -67,8 +67,8 @@
                 <h2 class="section-title"><span class="bar-accent">|</span> PONTOS DISPONÍVEIS</h2>
                 
                 <div class="rewards-grid">
-                    
-                    <div class="reward-card">
+                    <!-- Card 1 (100 pts) -->
+                    <div class="reward-card locked" data-cost="100">
                         <div class="reward-image" style="background-image: url('https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=400&q=80');"></div>
                         <div class="reward-info">
                             <div class="reward-header-row">
@@ -80,45 +80,49 @@
                         </div>
                     </div>
 
-                    <div class="reward-card">
-                        <div class="reward-image" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80');"></div>
-                        <div class="reward-info">
-                            <div class="reward-header-row">
-                                <h3 class="reward-name">Burger Clássico</h3>
-                                <span class="pts-tag">350 PTS</span>
-                            </div>
-                            <p class="reward-desc">The legend itself. 100% beef, 100% satisfaction guaranteed.</p>
-                            <button class="btn-redeem">RESGATAR</button>
-                        </div>
-                    </div>
+                    
 
-                    <div class="reward-card locked">
+                    <!-- Card 3 (250 pts) -->
+                    <div class="reward-card locked" data-cost="250">
                         <div class="reward-image" style="background-image: url('https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=400&q=80');">
                             <div class="lock-overlay">TRANCADO</div>
                         </div>
                         <div class="reward-info">
                             <div class="reward-header-row">
                                 <h3 class="reward-name">Shake de Chocolate</h3>
-                                <span class="pts-tag">500 PTS</span>
+                                <span class="pts-tag">350 PTS</span>
                             </div>
                             <p class="reward-desc">A sugar rush that dreams are made of. Choice of 5 flavors.</p>
                             <button class="btn-disabled" disabled>SEM PONTOS SUFICIENTES</button>
                         </div>
                     </div>
-
-                    <div class="reward-card locked">
+                    <!-- Card 2 (350 pts) -->
+                    <div class="reward-card locked" data-cost="350">
+                        <div class="reward-image" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80');"></div>
+                        <div class="reward-info">
+                            <div class="reward-header-row">
+                                <h3 class="reward-name">Burger Clássico</h3>
+                                <span class="pts-tag">250 PTS</span>
+                            </div>
+                            <p class="reward-desc">The legend itself. 100% beef, 100% satisfaction guaranteed.</p>
+                            <button class="btn-redeem">RESGATAR</button>
+                        </div>
+                    </div>
+                    <!-- Card 4 (500 pts) -->
+                    <div class="reward-card locked" data-cost="500">
                         <div class="reward-image" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80');">
                             <div class="lock-overlay">TRANCADO</div>
                         </div>
                         <div class="reward-info">
                             <div class="reward-header-row">
                                 <h3 class="reward-name">Party Pizza</h3>
-                                <span class="pts-tag">1000 PTS</span>
+                                <span class="pts-tag">500 PTS</span>
                             </div>
                             <p class="reward-desc">Bring the crew together with a giant 16" cheesy feast.</p>
                             <button class="btn-disabled" disabled>SEM PONTOS SUFICIENTES</button>
                         </div>
                     </div>
+                    
 
                 </div>
             </section>
@@ -129,5 +133,104 @@
 
     </div>
     <script src="resources/js/components.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // --- 1. SELEÇÃO DE ELEMENTOS ---
+        const ptsElement = document.querySelector(".pts-number");
+        const rewardCards = document.querySelectorAll(".reward-card"); 
+        const progressBar = document.querySelector(".progress-bar-fill");
+        const progressCircle = document.querySelector("circle.prog"); // Seleciona o círculo
+        const levelTitle = document.querySelector(".level-title");
+        const levelSubtitle = document.querySelector(".level-subtitle");
+        
+        // --- 2. CONFIGURAÇÕES DA ANIMAÇÃO ---
+        const targetPts = 500; 
+        const maxGoalPts = 600; 
+        const duration = 4000; 
+        const frameRate = 1000 / 60; 
+        const totalFrames = Math.round(duration / frameRate);
+        const circleLength = 440; // Tamanho total da linha do SVG
+        let currentFrame = 0;
+
+        // --- 3. MAPEAMENTO DOS PRÊMIOS ---
+        const rewardsData = [];
+        rewardCards.forEach(card => {
+            rewardsData.push({
+                cost: parseInt(card.getAttribute("data-cost")),
+                name: card.querySelector(".reward-name").textContent
+            });
+        });
+        rewardsData.sort((a, b) => a.cost - b.cost);
+
+        const getLevelName = (pts) => {
+            if (pts < 100) return "Iniciante";
+            if (pts < 250) return "Cliente Fiel";
+            if (pts < 350) return "Burger Lover";
+            if (pts < 500) return "Burger Master";
+            return "Lenda do Joint";
+        };
+
+        // --- 4. MOTOR DA ANIMAÇÃO ---
+        const counter = setInterval(() => {
+            currentFrame++;
+            const progress = currentFrame / totalFrames;
+            const easeOutProgress = 1 - Math.pow(1 - progress, 3);
+            const currentPts = Math.round(targetPts * easeOutProgress);
+            
+            // --- ATUALIZA NÚMERO, BARRA RETA E CÍRCULO ---
+            const percentage = currentPts / maxGoalPts; // Porcentagem atual (0 a 1)
+            
+            ptsElement.textContent = currentPts;
+            progressBar.style.width = (percentage * 100) + "%";
+            progressCircle.style.strokeDashoffset = circleLength - (circleLength * percentage); // Preenche o círculo
+
+            // --- ATUALIZA TÍTULOS ---
+            levelTitle.textContent = "Level: " + getLevelName(currentPts);
+
+            const nextReward = rewardsData.find(reward => reward.cost > currentPts);
+            if (nextReward) {
+                levelSubtitle.innerHTML = `Faltam somente ${nextReward.cost - currentPts} pontos para <span>${nextReward.name}!</span>`;
+            } else {
+                levelSubtitle.innerHTML = `Parabéns! Você alcançou o <span>Nível Máximo!</span>`;
+            }
+
+            // --- DESBLOQUEIO DOS CARDS ---
+            rewardCards.forEach(card => {
+                const cost = parseInt(card.getAttribute("data-cost"));
+                
+                if (currentPts >= cost) {
+                    card.classList.remove("locked");
+                    const overlay = card.querySelector(".lock-overlay");
+                    if (overlay) overlay.style.display = "none";
+
+                    const btn = card.querySelector("button");
+                    if (btn && btn.classList.contains("btn-disabled")) {
+                        btn.classList.remove("btn-disabled");
+                        btn.classList.add("btn-redeem");
+                        btn.removeAttribute("disabled");
+                        btn.textContent = "RESGATAR";
+                    }
+                }
+            });
+
+            // --- FIM DA ANIMAÇÃO ---
+            if (currentFrame >= totalFrames) {
+                clearInterval(counter);
+                
+                // Crava os valores finais com exatidão
+                const finalPercentage = targetPts / maxGoalPts;
+                ptsElement.textContent = targetPts; 
+                progressBar.style.width = (finalPercentage * 100) + "%";
+                progressCircle.style.strokeDashoffset = circleLength - (circleLength * finalPercentage);
+                
+                levelTitle.textContent = "Level: " + getLevelName(targetPts);
+                const finalNextReward = rewardsData.find(reward => reward.cost > targetPts);
+                if (finalNextReward) {
+                    levelSubtitle.innerHTML = `Faltam somente ${finalNextReward.cost - targetPts} pontos para <span>${finalNextReward.name}!</span>`;
+                }
+            }
+        }, frameRate);
+    });
+</script>
 </body>
 </html>
