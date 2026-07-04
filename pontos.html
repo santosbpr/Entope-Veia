@@ -90,7 +90,7 @@
                         <div class="reward-info">
                             <div class="reward-header-row">
                                 <h3 class="reward-name">Shake de Chocolate</h3>
-                                <span class="pts-tag">350 PTS</span>
+                                <span class="pts-tag">250 PTS</span>
                             </div>
                             <p class="reward-desc">A sugar rush that dreams are made of. Choice of 5 flavors.</p>
                             <button class="btn-disabled" disabled>SEM PONTOS SUFICIENTES</button>
@@ -102,7 +102,7 @@
                         <div class="reward-info">
                             <div class="reward-header-row">
                                 <h3 class="reward-name">Burger Clássico</h3>
-                                <span class="pts-tag">250 PTS</span>
+                                <span class="pts-tag">350 PTS</span>
                             </div>
                             <p class="reward-desc">The legend itself. 100% beef, 100% satisfaction guaranteed.</p>
                             <button class="btn-redeem">RESGATAR</button>
@@ -194,21 +194,33 @@
                 levelSubtitle.innerHTML = `Parabéns! Você alcançou o <span>Nível Máximo!</span>`;
             }
 
-            // --- DESBLOQUEIO DOS CARDS ---
+            // --- DESBLOQUEIO E BLOQUEIO AUTOMÁTICO DOS CARDS ---
             rewardCards.forEach(card => {
                 const cost = parseInt(card.getAttribute("data-cost"));
+                const overlay = card.querySelector(".lock-overlay");
+                const btn = card.querySelector("button");
                 
                 if (currentPts >= cost) {
+                    // DESBLOQUEIA se tiver pontos
                     card.classList.remove("locked");
-                    const overlay = card.querySelector(".lock-overlay");
                     if (overlay) overlay.style.display = "none";
 
-                    const btn = card.querySelector("button");
-                    if (btn && btn.classList.contains("btn-disabled")) {
+                    if (btn) {
                         btn.classList.remove("btn-disabled");
                         btn.classList.add("btn-redeem");
                         btn.removeAttribute("disabled");
                         btn.textContent = "RESGATAR";
+                    }
+                } else {
+                    // BLOQUEIA FORÇADO se não tiver pontos (corrige o HTML)
+                    card.classList.add("locked");
+                    if (overlay) overlay.style.display = ""; 
+
+                    if (btn) {
+                        btn.classList.remove("btn-redeem");
+                        btn.classList.add("btn-disabled");
+                        btn.setAttribute("disabled", "true");
+                        btn.textContent = "SEM PONTOS SUFICIENTES";
                     }
                 }
             });
