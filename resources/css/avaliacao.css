@@ -1,4 +1,24 @@
-/* --- Configurações Globais --- */
+/* ==========================================================================
+   ARQUIVO: resources/css/avaliacao.css
+   DESCRIÇÃO: Estilos para a página de avaliação de pedidos.
+   
+   ÍNDICE:
+   1. CONFIGURAÇÕES GLOBAIS E RESET
+   2. ESTRUTURA PRINCIPAL (Layout)
+   3. SIDEBAR (Menu Lateral)
+   4. CONTEÚDO PRINCIPAL E TÍTULO
+   5. PAINEL DE AVALIAÇÃO (Grid Principal)
+   6. CARDS (Produto e Upload)
+   7. SISTEMA DE AVALIAÇÃO (Ícones, Banco de Ícones e Animações)
+   8. CAIXA DE COMENTÁRIOS E BOTÕES
+   9. RODAPÉ
+   10. RESPONSIVIDADE (Media Queries)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. CONFIGURAÇÕES GLOBAIS E RESET
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -17,13 +37,19 @@ a {
     text-decoration: none;
 }
 
-/* Layout Principal em Duas Colunas (Sidebar + Conteúdo) */
+
+/* ==========================================================================
+   2. ESTRUTURA PRINCIPAL (Layout)
+   ========================================================================== */
 .app-container {
     display: flex;
     min-height: 100vh;
 }
 
-/* --- SIDEBAR LATERAL --- */
+
+/* ==========================================================================
+   3. SIDEBAR (Menu Lateral)
+   ========================================================================== */
 .sidebar {
     width: 260px;
     background-color: #0c0c0c;
@@ -36,94 +62,31 @@ a {
     height: 100vh;
 }
 
-.brand-section {
-    margin-bottom: 40px;
-}
+.brand-section { margin-bottom: 40px; }
+.logo-title { color: #ff2a3a; font-size: 32px; line-height: 0.95; font-style: italic; letter-spacing: -1px; }
+.user-level { font-family: 'Arial', sans-serif; font-size: 13px; color: #a0a0a0; margin-top: 8px; font-weight: bold; }
 
-.logo-title {
-    color: #ff2a3a;
-    font-size: 32px;
-    line-height: 0.95;
-    font-style: italic;
-    letter-spacing: -1px;
-}
+.sidebar-menu ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.sidebar-menu ul li a { display: flex; align-items: center; gap: 15px; padding: 12px 15px; font-family: 'Arial', sans-serif; font-size: 15px; font-weight: bold; color: #a0a0a0; border-radius: 4px; transition: 0.2s; }
+.sidebar-menu ul li a span { font-size: 16px; }
 
-.user-level {
-    font-family: 'Arial', sans-serif;
-    font-size: 13px;
-    color: #a0a0a0;
-    margin-top: 8px;
-    font-weight: bold;
-}
+/* Estados do Menu */
+.sidebar-menu ul li.active a { background-color: #fce3a1; color: #000; }
+.sidebar-menu ul li a:hover:not(.active a) { color: #fff; background-color: #111; }
 
-.sidebar-menu ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+.sidebar-footer { display: flex; flex-direction: column; gap: 20px; }
 
-.sidebar-menu ul li a {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 12px 15px;
-    font-family: 'Arial', sans-serif;
-    font-size: 15px;
-    font-weight: bold;
-    color: #a0a0a0;
-    border-radius: 4px;
-    transition: 0.2s;
-}
+.btn-order-now { background-color: #e31b23; color: #fff; border: none; padding: 14px; font-size: 14px; font-weight: bold; cursor: pointer; transition: 0.2s; }
+.btn-order-now:hover { background-color: #b31218; }
 
-.sidebar-menu ul li a span {
-    font-size: 16px;
-}
+.logout-link { font-family: 'Arial', sans-serif; font-size: 14px; color: #a0a0a0; font-weight: bold; display: flex; align-items: center; gap: 10px; }
 
-.sidebar-menu ul li.active a {
-    background-color: #fce3a1;
-    color: #000;
-}
 
-.sidebar-menu ul li a:hover:not(.active a) {
-    color: #fff;
-    background-color: #111;
-}
-
-.sidebar-footer {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.btn-order-now {
-    background-color: #e31b23;
-    color: #fff;
-    border: none;
-    padding: 14px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.btn-order-now:hover {
-    background-color: #b31218;
-}
-
-.logout-link {
-    font-family: 'Arial', sans-serif;
-    font-size: 14px;
-    color: #a0a0a0;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* --- CONTEÚDO PRINCIPAL --- */
+/* ==========================================================================
+   4. CONTEÚDO PRINCIPAL E TÍTULO
+   ========================================================================== */
 .main-content {
-    margin-left: 260px; /* Alinha ao lado da barra fixa */
+    margin-left: 260px; /* Compensa a sidebar fixa */
     flex-grow: 1;
     padding: 50px 5% 20px 5%;
     display: flex;
@@ -140,28 +103,36 @@ a {
     width: fit-content;
 }
 
-/* Grid do Painel de Avaliação */
+
+/* ==========================================================================
+   5. PAINEL DE AVALIAÇÃO (Grid Principal)
+   ========================================================================== */
 .dashboard-grid {
     display: flex;
     gap: 30px;
     margin-bottom: 60px;
 }
 
-.review-form-column {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+.review-form-column { flex: 2; display: flex; flex-direction: column; gap: 25px; }
+
+/* COLUNA DA DIREITA ATUALIZADA */
+.action-column { 
+    /* A MÁGICA DE TRAVAR: 
+       0 = Não deixe crescer 
+       0 = Não deixe encolher 
+       350px = Largura fixa exata */
+    flex: 0 0 350px; 
+    width: 350px; /* Reforço de segurança para navegadores antigos */
+    
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
 }
 
-.action-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* --- CARDS DE CONTEÚDO --- */
+/* ==========================================================================
+   6. CARDS (Produto e Upload)
+   Base visual para os blocos de informação.
+   ========================================================================== */
 .product-summary-card, 
 .rating-questions-card, 
 .photo-upload-card {
@@ -170,80 +141,58 @@ a {
     padding: 25px;
 }
 
-/* Resumo do Produto */
-.product-summary-card {
-    display: flex;
-    gap: 20px;
-    align-items: center;
+/* Card: Resumo do Produto */
+.product-summary-card { display: flex; gap: 20px; align-items: center; }
+.product-thumb { width: 100px; height: 100px; background-size: cover; background-position: center; border: 1px solid #222; }
+.order-number { background-color: #222; font-family: 'Arial', sans-serif; font-size: 11px; font-weight: bold; padding: 3px 8px; color: #fce3a1; letter-spacing: 1px; }
+.product-details h3 { font-size: 20px; margin: 8px 0 4px 0; }
+.order-items { font-family: 'Arial', sans-serif; font-size: 13px; color: #ff2a3a; }
+
+/* Card: Upload de Foto */
+.photo-upload-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.upload-title { font-size: 12px; letter-spacing: 1px; margin-bottom: 15px; }
+
+/* Caixa que segura a imagem */
+.uploaded-preview-box { 
+    width: 100%; 
+    border: 2px dashed #333; 
+    padding: 10px; 
+    margin-bottom: 15px; 
+    /* ATENÇÃO: Removemos o overflow: hidden para a imagem poder sair da caixa e crescer na tela */
 }
 
-.product-thumb {
-    width: 100px;
-    height: 100px;
-    background-size: cover;
-    background-position: center;
-    border: 1px solid #222;
+/* Estilo da tag <img> otimizada para SEO e preparada para o Efeito Lightbox */
+.preview-img { 
+    width: 100%; 
+    height: 180px; 
+    object-fit: cover; 
+    object-position: center; 
+    border-radius: 4px;
+    cursor: zoom-in; /* Muda o cursor para uma lupa de "+" */
+    
+    position: relative; /* Necessário para controlar as camadas (z-index) */
+    z-index: 1; /* Mantém a imagem na camada normal inicialmente */
+    
+    /* Deixa a animação de crescimento bem fluida e suave */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, z-index 0s; 
 }
 
-.order-number {
-    background-color: #222;
-    font-family: 'Arial', sans-serif;
-    font-size: 11px;
-    font-weight: bold;
-    padding: 3px 8px;
-    color: #fce3a1;
-    letter-spacing: 1px;
+/* O EFEITO MÁGICO: Ao clicar e segurar (Active) */
+.preview-img:active {
+    transform: scale(2.5); /* Aumenta a imagem em 250% */
+    z-index: 9999; /* Joga a foto para a frente de absolutamente tudo no site */
+    
+    /* O truque do box-shadow: cria uma "sombra" gigante preta com 80% de opacidade que cobre a tela toda */
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.8), 0 20px 40px rgba(0, 0, 0, 0.6); 
 }
 
-.product-details h3 {
-    font-size: 20px;
-    margin: 8px 0 4px 0;
-}
+.btn-change-photo { background-color: #fce3a1; color: #000; border: none; padding: 10px 20px; font-size: 12px; font-weight: bold; cursor: pointer; width: 100%; }
 
-.order-items {
-    font-family: 'Arial', sans-serif;
-    font-size: 13px;
-    color: #ff2a3a;
-}
-
-/* Blocos de Questões */
-.question-group {
-    margin-bottom: 30px;
-}
-
-.question-label {
-    font-family: 'Arial', sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-    margin-bottom: 12px;
-}
-
-.rating-icons {
-    display: flex;
-    gap: 12px;
-}
-
-.rating-icons .icon {
-    font-size: 24px;
-    cursor: pointer;
-    filter: grayscale(100%) opacity(40%);
-}
-
-.rating-icons .icon.active {
-    filter: none;
-}
-
-/* Caixa de Comentários */
-.comment-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.comment-group label {
-    font-size: 12px;
-    letter-spacing: 1px;
-}
+/* ==========================================================================
+   8. CAIXA DE COMENTÁRIOS E BOTÕES
+   ========================================================================== */
+.comment-group { display: flex; flex-direction: column; }
+.comment-group label { font-size: 12px; letter-spacing: 1px; }
 
 textarea {
     background-color: #0c0c0c;
@@ -255,59 +204,10 @@ textarea {
     min-height: 120px;
     resize: vertical;
 }
+textarea:focus { outline: 1px solid #fce3a1; }
 
-textarea:focus {
-    outline: 1px solid #fce3a1;
-}
+.helper-text { font-family: 'Arial', sans-serif; font-style: italic; font-size: 13px; color: #a0a0a0; font-weight: bold; }
 
-/* Seção Upload Foto */
-.photo-upload-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.upload-title {
-    font-size: 12px;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-}
-
-.uploaded-preview-box {
-    width: 100%;
-    border: 2px dashed #333;
-    padding: 10px;
-    margin-bottom: 15px;
-}
-
-.preview-img {
-    width: 100%;
-    height: 180px;
-    background-size: cover;
-    background-position: center;
-}
-
-.btn-change-photo {
-    background-color: #fce3a1;
-    color: #000;
-    border: none;
-    padding: 10px 20px;
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-}
-
-.helper-text {
-    font-family: 'Arial', sans-serif;
-    font-style: italic;
-    font-size: 13px;
-    color: #a0a0a0;
-    font-weight: bold;
-}
-
-/* Botão de Envio de Avaliação */
 .btn-submit-review {
     background-color: #e31b23;
     color: #fff;
@@ -319,13 +219,12 @@ textarea:focus {
     box-shadow: 0 4px 15px rgba(227, 27, 35, 0.2);
     transition: 0.2s;
 }
+.btn-submit-review:hover { background-color: #b31218; transform: translateY(-2px); }
 
-.btn-submit-review:hover {
-    background-color: #b31218;
-    transform: translateY(-2px);
-}
 
-/* --- RODAPÉ --- */
+/* ==========================================================================
+   9. RODAPÉ
+   ========================================================================== */
 footer {
     margin-top: auto;
     border-top: 1px solid #1a1a1a;
@@ -335,38 +234,67 @@ footer {
     align-items: center;
 }
 
-footer .footer-left h3 {
-    font-size: 14px;
-    color: #fff;
-    margin-bottom: 5px;
-}
+footer .footer-left h3 { font-size: 14px; color: #fff; margin-bottom: 5px; }
+footer .footer-left p { font-family: 'Arial', sans-serif; font-size: 11px; color: #555; }
+footer .footer-right { display: flex; gap: 20px; }
+footer .footer-right a { font-family: 'Arial', sans-serif; font-size: 11px; color: #888; font-weight: bold; }
+footer .footer-right a:hover { color: #fff; }
 
-footer .footer-left p {
-    font-family: 'Arial', sans-serif;
-    font-size: 11px;
-    color: #555;
-}
-
-footer .footer-right {
-    display: flex;
-    gap: 20px;
-}
-
-footer .footer-right a {
-    font-family: 'Arial', sans-serif;
-    font-size: 11px;
-    color: #888;
-    font-weight: bold;
-}
-
-footer .footer-right a:hover {
-    color: #fff;
-}
-
-/* --- RESPONSIVIDADE --- */
+/* ==========================================================================
+   10. RESPONSIVIDADE (Media Queries)
+   ========================================================================== */
 @media (max-width: 960px) {
     .dashboard-grid { flex-direction: column; }
+    
+    /* Destrava a coluna de ações para ela preencher a tela inteira quando for para baixo */
+    .action-column {
+        flex: auto;
+        width: 100%;
+    }
+    
     .sidebar { width: 80px; padding: 20px 10px; align-items: center; }
     .logo-title, .user-level, .sidebar-menu a text, .btn-order-now { display: none; }
     .main-content { margin-left: 80px; }
 }
+/* ==========================================================================
+   ANIMAÇÃO DE SIMULAÇÃO DE CLIQUE NAS NOTAS
+   ========================================================================== */
+
+/* 1. Estado inicial dos ícones (Visíveis, mas cinzas) */
+.rating-icons .icon {
+    font-size: 28px;
+    color: #ff6600; /* Cor quente (laranja fogo) que vai aparecer no final */
+    
+    /* Inicia totalmente cinza e com pouca opacidade */
+    filter: grayscale(100%) opacity(40%); 
+    
+    /* Configura a animação para rodar e manter o estado final (forwards) */
+    animation: simularClique 0.4s ease forwards;
+}
+
+/* 2. A animação que "acende" a cor e simula o clique */
+@keyframes simularClique {
+    0% {
+        filter: grayscale(100%) opacity(40%);
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3); /* Dá um pequeno "pulo" igual a um clique real */
+    }
+    100% {
+        filter: grayscale(0%) opacity(100%); /* Fica totalmente colorido e vivo */
+        transform: scale(1);
+    }
+}
+
+/* 3. A cascata: Atrasos progressivos para parecer que alguém está clicando */
+.rating-icons .icon:nth-child(1) { animation-delay: 0.4s; }
+.rating-icons .icon:nth-child(2) { animation-delay: 0.8s; }
+.rating-icons .icon:nth-child(3) { animation-delay: 1.2s; }
+.rating-icons .icon:nth-child(4) { animation-delay: 1.6s; }
+
+/* 
+  NOTA: Se quiser simular uma nota 4 (deixando o último apagado igual estava no seu HTML), 
+  basta mudar o código abaixo para: animation: none; 
+*/
+.rating-icons .icon:nth-child(5) { animation-delay: 2.0s; }

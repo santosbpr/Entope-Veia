@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entope Veia - Avaliar Pedido</title>
     <link rel="stylesheet" href="resources/css/avaliacao.css">
+    <!-- Link do Font Awesome (Banco de Ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <div class="app-container">
         
         <aside class="sidebar" id="global-sidebar" data-active-page="pedidos"></aside>
+        
 
         <main class="main-content">
             
@@ -21,7 +24,14 @@
                 <section class="review-form-column">
                     
                     <div class="product-summary-card">
-                        <div class="product-thumb" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=300&q=80');"></div>
+                        <!-- Imagem convertida para a tag <img> com texto alternativo (alt) -->
+                        <img 
+                            src="resources/img/o_entupidor.jpeg" 
+                            alt="Lanche X-Infarto Duplo com hambúrguer artesanal e queijo derretido" 
+                            class="product-thumb"
+                            loading="lazy"
+                        >
+                        
                         <div class="product-details">
                             <span class="order-number">PEDIDO #4829</span>
                             <h3>X-INFARTO DUPLO</h3>
@@ -34,22 +44,22 @@
                         <div class="question-group">
                             <p class="question-label">O que achou do banquete?</p>
                             <div class="rating-icons">
-                                <span class="icon active">🔥</span>
-                                <span class="icon active">🔥</span>
-                                <span class="icon active">🔥</span>
-                                <span class="icon">🔥</span>
-                                <span class="icon">🔥</span>
+                                <i class="fa-solid fa-fire icon "></i>
+                                <i class="fa-solid fa-fire icon "></i>
+                                <i class="fa-solid fa-fire icon "></i>
+                                <i class="fa-solid fa-fire icon "></i>
+                                <i class="fa-solid fa-fire icon "></i>
                             </div>
                         </div>
 
                         <div class="question-group">
                             <p class="question-label">A entrega foi rápida?</p>
                             <div class="rating-icons">
-                                <span class="icon active">⚡</span>
-                                <span class="icon active">⚡</span>
-                                <span class="icon active">⚡</span>
-                                <span class="icon active">⚡</span>
-                                <span class="icon">⚡</span>
+                                <i class="fa-solid fa-bolt icon "></i>
+                                <i class="fa-solid fa-bolt icon "></i>
+                                <i class="fa-solid fa-bolt icon "></i>
+                                <i class="fa-solid fa-bolt icon "></i>
+                                <i class="fa-solid fa-bolt icon "></i>
                             </div>
                         </div>
 
@@ -66,15 +76,19 @@
                     
                     <div class="photo-upload-card">
                         <p class="upload-title">GORDICE NA TELA</p>
+                        
                         <div class="uploaded-preview-box">
-                            <div class="preview-img" style="background-image: url('https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=400&q=80');"></div>
+                            <!-- Uso da tag <img> para SEO. Substitua o 'src' pelo caminho da sua pasta -->
+                            <img 
+                                src="resources/img/o_entupidor.jpeg" 
+                                alt="Foto do lanche X-Infarto Duplo com fritas e refrigerante na bandeja" 
+                                class="preview-img"
+                                loading="lazy"
+                            >
                         </div>
-                        <button class="btn-change-photo">TROCAR FOTO</button>
-                    </div>
-
-                    <p class="helper-text">Sua avaliação ajuda outros viciados em gordice!</p>
-
-                    <button class="btn-submit-review">ENVIAR AVALIAÇÃO</button>
+    
+    <button class="btn-change-photo">TROCAR FOTO</button>
+</div>
 
                 </section>
 

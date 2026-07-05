@@ -1,4 +1,23 @@
-/* --- Configurações Globais --- */
+/* ==========================================================================
+   ARQUIVO: resources/css/pontos.css
+   DESCRIÇÃO: Estilos principais para a tela de dashboard de pontos/recompensas.
+   
+   ÍNDICE:
+   1. RESET E ESTILOS GLOBAIS
+   2. ESTRUTURA PRINCIPAL (Layout)
+   3. SIDEBAR (Menu Lateral)
+   4. CONTEÚDO PRINCIPAL E CABEÇALHO
+   5. DASHBOARD (Cards e Animações de Progresso)
+   6. RECOMPENSAS (Grid e Cards)
+   7. RODAPÉ (Footer)
+   8. RESPONSIVIDADE (Media Queries)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. RESET E ESTILOS GLOBAIS
+   Configurações base para limpar margens e definir cores e fontes padrão.
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -16,11 +35,20 @@ a {
     text-decoration: none;
 }
 
+
+/* ==========================================================================
+   2. ESTRUTURA PRINCIPAL
+   Container que engloba toda a aplicação, usando flexbox para o layout.
+   ========================================================================== */
 .app-container {
     display: flex;
 }
 
-/* --- SIDEBAR LATERAL --- */
+
+/* ==========================================================================
+   3. SIDEBAR (Menu Lateral)
+   Estilos da barra de navegação esquerda, logotipos e botão de pedido.
+   ========================================================================== */
 .sidebar {
     width: 250px;
     background-color: #111111;
@@ -47,6 +75,7 @@ a {
     margin-top: 5px;
 }
 
+/* Links do Menu */
 .sidebar-menu ul {
     list-style: none;
     display: flex;
@@ -66,6 +95,7 @@ a {
     color: #aaa;
 }
 
+/* Estados do Menu (Ativo e Hover) */
 .sidebar-menu ul li.active a {
     background-color: #fce3a1;
     color: #000;
@@ -76,6 +106,7 @@ a {
     color: #fff;
 }
 
+/* Botão de ação no fim da sidebar */
 .btn-order-now {
     width: 100%;
     background-color: #e31b23;
@@ -87,14 +118,17 @@ a {
     cursor: pointer;
 }
 
-/* --- CONTEÚDO PRINCIPAL --- */
+
+/* ==========================================================================
+   4. CONTEÚDO PRINCIPAL E CABEÇALHO
+   Área à direita da sidebar e o cabeçalho do topo (título, carrinho, pts).
+   ========================================================================== */
 .main-content {
-    margin-left: 250px;
+    margin-left: 250px; /* Compensa a largura da sidebar fixa */
     flex-grow: 1;
     padding: 40px 4%;
 }
 
-/* Cabeçalho Interno */
 .content-header {
     display: flex;
     justify-content: space-between;
@@ -130,7 +164,11 @@ a {
     cursor: pointer;
 }
 
-/* --- DASHBOARD ROW --- */
+
+/* ==========================================================================
+   5. DASHBOARD (Cards e Animações de Progresso)
+   Linha principal de informações contendo o círculo SVG e a barra de metas.
+   ========================================================================== */
 .dashboard-row {
     display: flex;
     gap: 25px;
@@ -143,7 +181,7 @@ a {
     padding: 25px;
 }
 
-/* Card do Círculo de Progresso */
+/* --- Card do Círculo de Progresso --- */
 .progress-circle-card {
     flex: 1;
     display: flex;
@@ -169,30 +207,23 @@ a {
 .svg-container svg circle.bg {
     stroke: #222;
 }
-/* --- Animação do Círculo de Progresso (SVG) --- */
+
+/* Animação do Círculo de Progresso (SVG) 
+   NOTA PARA EDIÇÃO: Para alterar a porcentagem preenchida, altere o 
+   'stroke-dashoffset' dentro dos @keyframes (440 = 0%, 0 = 100%) */
 .svg-container svg circle.prog {
     stroke: #fce3a1;
     stroke-linecap: round;
     stroke-dasharray: 440;
-    /* Começa no 440 (totalmente vazio) */
-    stroke-dashoffset: 440; 
-    /* Chama a animação 'fillCircle' durando 2s com desaceleração (ease-out) */
-    /* animation: fillCircle 6s ease-out forwards;  */
+    stroke-dashoffset: 440; /* Começa vazio */
+    /* animation: fillCircle 6s ease-out forwards; */
 }
-/* .svg-container svg circle.prog {
-    stroke: #fce3a1;
-    stroke-linecap: round;
-    stroke-dasharray: 440;
-    stroke-dashoffset: 44; Representa os 450 de 500 totais
-} */
+
 @keyframes fillCircle {
     to {
-        /* Vai até o 44 (que representa os 450 de 500 pontos) */
-        stroke-dashoffset: 44; 
+        stroke-dashoffset: 44; /* Representa 450 de 500 pontos */
     }
 }
-
-
 
 .circle-text {
     position: absolute;
@@ -203,34 +234,13 @@ a {
     flex-direction: column;
 }
 
-.pts-number {
-    font-size: 38px;
-    line-height: 1;
-}
+.pts-number { font-size: 38px; line-height: 1; }
+.pts-label { font-size: 11px; color: #888; letter-spacing: 1px; }
+.level-title { font-size: 18px; margin-bottom: 5px; }
+.level-subtitle { font-family: 'Arial', sans-serif; font-size: 13px; color: #aaa; }
+.level-subtitle span { color: #fce3a1; font-weight: bold; }
 
-.pts-label {
-    font-size: 11px;
-    color: #888;
-    letter-spacing: 1px;
-}
-
-.level-title {
-    font-size: 18px;
-    margin-bottom: 5px;
-}
-
-.level-subtitle {
-    font-family: 'Arial', sans-serif;
-    font-size: 13px;
-    color: #aaa;
-}
-
-.level-subtitle span {
-    color: #fce3a1;
-    font-weight: bold;
-}
-
-/* Coluna Direita */
+/* --- Coluna Direita (Banners e Barra de Meta) --- */
 .dash-column-right {
     flex: 1.5;
     display: flex;
@@ -238,7 +248,7 @@ a {
     gap: 20px;
 }
 
-/* Banner de Destaque Vermelho */
+/* Banner Vermelho de Destaque */
 .indulgence-banner {
     background-color: #e31b23;
     padding: 30px;
@@ -264,19 +274,14 @@ a {
     width: fit-content;
 }
 
-/* Card da Barra de Progresso */
+/* Card da Barra de Progresso Linear */
 .next-goal-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.goal-header {
-    font-size: 11px;
-    letter-spacing: 1px;
-    color: #aaa;
-    margin-bottom: 12px;
-}
+.goal-header { font-size: 11px; letter-spacing: 1px; color: #aaa; margin-bottom: 12px; }
 
 .progress-bar-container {
     width: 100%;
@@ -286,150 +291,101 @@ a {
     margin-bottom: 10px;
 }
 
-/* .progress-bar-fill {
-    height: 100%;
-    background-color: #fce3a1;
-} */
-
-/* --- Animação da Barra de Progresso Linear --- */
+/* Animação da Barra de Progresso
+   NOTA PARA EDIÇÃO: Altere o 'width' nos @keyframes para ajustar a barra */
 .progress-bar-fill {
     height: 100%;
     background-color: #fce3a1;
-    /* Começa com largura 0 */
-    width: 0%; 
-    /* Chama a animação 'fillBar' sincronizada com o círculo */
+    width: 0%; /* Inicia vazia */
     animation: fillBar 6s ease-out forwards;
 }
+
 @keyframes fillBar {
-    to {
-        /* Vai até os 90% definidos no seu layout */
-        width: 90%; 
-    }
+    to { width: 90%; }
 }
 
-.goal-footer {
+.goal-footer { display: flex; justify-content: space-between; font-size: 10px; color: #ff4a5a; }
+
+/* ==========================================================================
+   6. CARDS (Produto e Upload)
+   ========================================================================== */
+.product-summary-card, 
+.rating-questions-card, 
+.photo-upload-card {
+    background-color: #111111;
+    border: 1px solid #1e1e1e;
+    padding: 25px;
+}
+
+.product-summary-card { display: flex; gap: 20px; align-items: center; }
+.product-thumb { width: 100px; height: 100px; background-size: cover; background-position: center; border: 1px solid #222; }
+.order-number { background-color: #222; font-family: 'Arial', sans-serif; font-size: 11px; font-weight: bold; padding: 3px 8px; color: #fce3a1; letter-spacing: 1px; }
+.product-details h3 { font-size: 20px; margin: 8px 0 4px 0; }
+.order-items { font-family: 'Arial', sans-serif; font-size: 13px; color: #ff2a3a; }
+
+.photo-upload-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.upload-title { font-size: 12px; letter-spacing: 1px; margin-bottom: 15px; }
+
+/* Caixa que segura a imagem */
+.uploaded-preview-box { 
+    width: 100%; 
+    border: 2px dashed #333; 
+    padding: 10px; 
+    margin-bottom: 15px; 
+    min-height: 204px; /* Mantém o espaço para o site não descer/subir */
     display: flex;
-    justify-content: space-between;
-    font-size: 10px;
-    color: #ff4a5a;
+    justify-content: center;
+    align-items: center;
 }
 
-/* --- SECÇÃO DE RECOMPENSAS --- */
-.section-title {
-    font-size: 20px;
-    margin-bottom: 25px;
-    letter-spacing: 0px;
+/* Estado normal da imagem */
+.preview-img { 
+    width: 100%; 
+    height: 180px; 
+    object-fit: cover; 
+    object-position: center; 
+    border-radius: 4px;
+    cursor: zoom-in;
+    position: relative; 
+    z-index: 1; 
+    
+    /* Removemos o 'all' e deixamos só o box-shadow e z-index para evitar o bug de voar pro canto */
+    transition: box-shadow 0.3s ease, z-index 0s; 
 }
 
-.bar-accent {
-    color: #ff4a5a;
+/* O EFEITO MÁGICO CENTRALIZADO (CORRIGIDO): Ao clicar e segurar (Active) */
+.preview-img:active {
+    position: fixed; 
+    
+    /* Prende a imagem em todas as bordas da tela */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    /* Essa é a mágica que força a imagem ir pro exato centro */
+    margin: auto; 
+    
+    width: auto; 
+    height: 70vh; 
+    max-width: 90vw; 
+    object-fit: contain; 
+    
+    z-index: 9999; 
+    
+    /* Cria a sombra preta em todo o fundo da tela */
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.9); 
 }
 
-.rewards-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-bottom: 60px;
-}
+.btn-change-photo { background-color: #fce3a1; color: #000; border: none; padding: 10px 20px; font-size: 12px; font-weight: bold; cursor: pointer; width: 100%; }
 
-.reward-card {
-    background-color: #111;
-    border: 1px solid #222;
-    display: flex;
-    flex-direction: column;
-}
 
-.reward-image {
-    width: 100%;
-    height: 150px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
 
-.reward-info {
-    padding: 20px 15px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
 
-.reward-header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 10px;
-}
-
-.reward-name {
-    font-size: 16px;
-    max-width: 65%;
-    line-height: 1.1;
-}
-
-.pts-tag {
-    background-color: #fce3a1;
-    color: #000;
-    font-size: 10px;
-    padding: 4px 6px;
-    font-weight: bold;
-}
-
-.reward-desc {
-    font-family: 'Arial', sans-serif;
-    font-size: 12px;
-    color: #888;
-    line-height: 1.4;
-    margin-bottom: 20px;
-    flex-grow: 1;
-}
-
-/* Botões de Ação nos Cards */
-.btn-redeem {
-    background-color: #ffb3b7; /* Tom rosa pálido do design */
-    color: #000;
-    border: none;
-    padding: 10px;
-    font-size: 11px;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-}
-
-.btn-disabled {
-    background-color: #222;
-    color: #555;
-    border: 1px solid #333;
-    padding: 10px;
-    font-size: 11px;
-    font-weight: bold;
-    width: 100%;
-    cursor: not-allowed;
-}
-
-/* Estado Bloqueado (Filtro Cinza) */
-.reward-card.locked .reward-image {
-    filter: grayscale(100%) brightness(50%);
-}
-
-.lock-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-10deg);
-    border: 2px solid #fff;
-    color: #fff;
-    padding: 4px 10px;
-    font-size: 14px;
-    letter-spacing: 1px;
-}
-
-.reward-card.locked .pts-tag {
-    background-color: #222;
-    color: #555;
-}
-
-/* --- RODAPÉ --- */
+/* ==========================================================================
+   7. RODAPÉ
+   Links úteis e informações de branding no fundo da página.
+   ========================================================================== */
 footer {
     border-top: 2px solid #ff4a5a;
     padding-top: 30px;
@@ -441,58 +397,23 @@ footer {
     margin-bottom: 30px;
 }
 
-.footer-brand {
-    max-width: 350px;
-}
+.footer-brand { max-width: 350px; }
+.footer-brand h3 { font-size: 18px; margin-bottom: 10px; }
+.footer-brand p { font-family: 'Arial', sans-serif; font-size: 12px; color: #666; line-height: 1.5; }
 
-.footer-brand h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
+.footer-links-group { display: flex; gap: 50px; }
+.link-col { display: flex; flex-direction: column; gap: 8px; }
+.link-col h4 { font-size: 11px; color: #fff; margin-bottom: 5px; letter-spacing: 1px; }
+.link-col a { font-family: 'Arial', sans-serif; font-size: 12px; color: #888; }
+.link-col a:hover { color: #fff; }
 
-.footer-brand p {
-    font-family: 'Arial', sans-serif;
-    font-size: 12px;
-    color: #666;
-    line-height: 1.5;
-}
+.footer-bottom { font-family: 'Arial', sans-serif; font-size: 11px; color: #444; text-align: left; }
 
-.footer-links-group {
-    display: flex;
-    gap: 50px;
-}
 
-.link-col {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.link-col h4 {
-    font-size: 11px;
-    color: #fff;
-    margin-bottom: 5px;
-    letter-spacing: 1px;
-}
-
-.link-col a {
-    font-family: 'Arial', sans-serif;
-    font-size: 12px;
-    color: #888;
-}
-
-.link-col a:hover {
-    color: #fff;
-}
-
-.footer-bottom {
-    font-family: 'Arial', sans-serif;
-    font-size: 11px;
-    color: #444;
-    text-align: left;
-}
-
-/* --- RESPONSIVIDADE --- */
+/* ==========================================================================
+   8. RESPONSIVIDADE (Media Queries)
+   Ajustes de layout para telas menores (Tablets e Celulares).
+   ========================================================================== */
 @media (max-width: 1100px) {
     .rewards-grid { grid-template-columns: repeat(2, 1fr); }
     .dashboard-row { flex-direction: column; }
@@ -500,7 +421,12 @@ footer {
 
 @media (max-width: 750px) {
     .sidebar { width: 70px; padding: 20px 5px; align-items: center; }
-    .logo-title, .user-slogan, .sidebar-menu span + text, .btn-order-now { display: none; }
+    .logo-title, 
+    .user-slogan, 
+    .sidebar-menu span + text, 
+    .btn-order-now { 
+        display: none; 
+    }
     .main-content { margin-left: 70px; }
     .rewards-grid { grid-template-columns: 1fr; }
 }
