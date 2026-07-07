@@ -362,6 +362,11 @@ footer {
     padding-bottom: 10px;
 }
 
+/* Esconde as ações do header mobile na versão Desktop */
+.mobile-header-actions {
+    display: none;
+}
+
 /* ==========================================================================
    MÍDIA QUERY: RESPONSIVIDADE MOBILE COMPLETA
    ========================================================================== */
@@ -386,4 +391,35 @@ footer {
     #map { height: 280px; }
     footer { flex-direction: column; gap: 30px; }
     .footer-columns { width: 100%; justify-content: space-between; }
+
+    /* Exibe o container do botão e alinha à direita */
+    .mobile-header-actions {
+        display: flex;
+        justify-content: flex-end; 
+        margin-bottom: 20px;
+    }
+
+    /* Estilização do botão de Sair */
+    .btn-mobile-logout {
+        background-color: #161616;
+        color: #e31b23; /* Vermelho do tema */
+        border: 1px solid #e31b23;
+        padding: 8px 16px;
+        font-family: 'Arial', sans-serif;
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 4px;
+        transition: 0.2s;
+    }
+
+    /* Efeito ao clicar no botão */
+    .btn-mobile-logout:active {
+        background-color: #e31b23;
+        color: #fff;
+    }
 }

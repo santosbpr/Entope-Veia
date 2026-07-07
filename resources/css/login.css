@@ -40,8 +40,11 @@ body {
     letter-spacing: -2px;
     line-height: 1;
     background: linear-gradient(135deg, #fff 70%, #fce3a1);
-    -webkit-background-clip: text;        /* Ajustar futuramente!!! */
-    -webkit-text-fill-color: transparent; /* Ajustar futuramente!!! */
+    /* Mantém o Webkit para compatibilidade com Chrome/Safari */
+    -webkit-background-clip: text;        
+    -webkit-text-fill-color: transparent; 
+    background-clip: text;
+    color: transparent;
 }
 
 .brand-slogan {
