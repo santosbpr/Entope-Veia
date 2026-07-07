@@ -432,8 +432,5 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .sidebar { width: 70px; padding: 20px 5px; align-items: center; }
-    .logo-title, .welcome-box, .sidebar-menu span + text, .btn-order-now { display: none; }
-    .main-content { margin-left: 70px; }
     footer { flex-direction: column-reverse; gap: 20px; }
 }
