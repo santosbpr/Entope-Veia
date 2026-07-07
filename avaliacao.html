@@ -40,26 +40,28 @@
                     </div>
 
                     <div class="rating-questions-card">
-                        
-                        <div class="question-group">
+    
+                        <div class="question-group" id="rating-food">
                             <p class="question-label">O que achou do banquete?</p>
                             <div class="rating-icons">
-                                <i class="fa-solid fa-fire icon "></i>
-                                <i class="fa-solid fa-fire icon "></i>
-                                <i class="fa-solid fa-fire icon "></i>
-                                <i class="fa-solid fa-fire icon "></i>
-                                <i class="fa-solid fa-fire icon "></i>
+                                <i class="fa-solid fa-fire icon" data-value="1"></i>
+                                <i class="fa-solid fa-fire icon" data-value="2"></i>
+                                <i class="fa-solid fa-fire icon" data-value="3"></i>
+                                <i class="fa-solid fa-fire icon" data-value="4"></i>
+                                <i class="fa-solid fa-fire icon" data-value="5"></i>
+                                <i class="fa-solid fa-fire icon" data-value="6"></i>
                             </div>
                         </div>
 
-                        <div class="question-group">
+                        <div class="question-group" id="rating-delivery">
                             <p class="question-label">A entrega foi rápida?</p>
                             <div class="rating-icons">
-                                <i class="fa-solid fa-bolt icon "></i>
-                                <i class="fa-solid fa-bolt icon "></i>
-                                <i class="fa-solid fa-bolt icon "></i>
-                                <i class="fa-solid fa-bolt icon "></i>
-                                <i class="fa-solid fa-bolt icon "></i>
+                                <i class="fa-solid fa-bolt icon" data-value="1"></i>
+                                <i class="fa-solid fa-bolt icon" data-value="2"></i>
+                                <i class="fa-solid fa-bolt icon" data-value="3"></i>
+                                <i class="fa-solid fa-bolt icon" data-value="4"></i>
+                                <i class="fa-solid fa-bolt icon" data-value="5"></i>
+                                <i class="fa-solid fa-bolt icon" data-value="6"></i>
                             </div>
                         </div>
 
@@ -67,6 +69,8 @@
                             <label class="question-label" for="comments">COMENTÁRIOS</label>
                             <textarea id="comments" placeholder="Conte o que achou da gordice..."></textarea>
                         </div>
+
+                        <button class="btn-submit-review" style="margin-top: 20px; width: 100%;" onclick="submitReview()">ENVIAR AVALIAÇÃO</button>
 
                     </div>
 
@@ -100,5 +104,55 @@
 
     </div>
     <script src="resources/js/components.js"></script>
+    <script>
+    // Variáveis para guardar as notas do usuário
+    let payloadAvaliacao = {
+        notaBanquete: 0,
+        notaEntrega: 0,
+        comentario: ""
+    };
+
+    // Função universal para gerenciar os cliques nos ícones
+    function setupRatings(groupId, propriedadePayload) {
+        const group = document.getElementById(groupId);
+        const icons = group.querySelectorAll('.icon');
+
+        icons.forEach(icon => {
+            icon.addEventListener('click', function() {
+                const value = parseInt(this.getAttribute('data-value'));
+                
+                // Salva a nota no nosso objeto payload
+                payloadAvaliacao[propriedadePayload] = value;
+
+                // Atualiza a interface visualmente
+                icons.forEach(i => {
+                    const iconValue = parseInt(i.getAttribute('data-value'));
+                    if (iconValue <= value) {
+                        i.classList.add('active'); // Pinta o atual e os anteriores
+                    } else {
+                        i.classList.remove('active'); // Despinta os próximos
+                    }
+                });
+            });
+        });
+    }
+
+    // Inicializa as interações nas duas perguntas
+    setupRatings('rating-food', 'notaBanquete');
+    setupRatings('rating-delivery', 'notaEntrega');
+
+    // Função de disparo do botão
+    function submitReview() {
+        // Captura o comentário no momento do clique
+        payloadAvaliacao.comentario = document.getElementById('comments').value;
+
+        // Validação básica
+        if (payloadAvaliacao.notaBanquete === 0 || payloadAvaliacao.notaEntrega === 0) {
+            alert("Ei! Por favor, dê uma nota para o banquete e para a entrega antes de enviar.");
+            return;
+        }
+  
+    }
+</script>
 </body>
 </html>
