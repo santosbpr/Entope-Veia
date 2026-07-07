@@ -449,6 +449,24 @@ a {
     cursor: pointer;
 }
 
+.btn-evaluate {
+    width: 100%;
+    background-color: #e31b23;
+    color: #fff;
+    border: 1px solid #e31b23;
+    padding: 14px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn-evaluate:hover {
+    background-color: #b31218;
+    border-color: #b31218;
+}
+
 /* --- ANIMAÇÕES KEYFRAMES --- */
 @keyframes moveRoad {
     0% { transform: translateX(0); }

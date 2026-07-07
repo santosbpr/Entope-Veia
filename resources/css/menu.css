@@ -63,6 +63,18 @@ nav ul li a:hover {
     font-size: 12px;
 }
 
+.cart-icon {
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+
+.cart-icon:hover {
+    color: #fce09b;
+}
+
 /* --- Banner Principal (Hero) --- */
 .hero-banner {
     position: relative;

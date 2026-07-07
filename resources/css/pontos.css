@@ -411,13 +411,5 @@ a {
 }
 
 @media (max-width: 750px) {
-    .sidebar { width: 70px; padding: 20px 5px; align-items: center; }
-    .logo-title, 
-    .user-slogan, 
-    .sidebar-menu span + text, 
-    .btn-order-now { 
-        display: none; 
-    }
-    .main-content { margin-left: 70px; }
     .rewards-grid { grid-template-columns: 1fr; }
 }
