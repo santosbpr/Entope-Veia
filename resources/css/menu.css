@@ -404,10 +404,13 @@ footer {
     .products-section { width: 100%; }
     .products-grid { grid-template-columns: repeat(2, 1fr); }
 }
+@media (max-width: 850px) {
+    header { flex-direction: column; gap: 12px; text-align: center; }
+    nav ul { gap: 15px; }
+}
 @media (max-width: 600px) {
     .products-grid { grid-template-columns: 1fr; }
     .hero-title { font-size: 28px; }
-    header { flex-direction: column; gap: 10px; }
 }
 
 /* Ocultar a barra de navegação global em desktops na página inicial */

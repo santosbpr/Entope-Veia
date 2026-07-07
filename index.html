@@ -16,7 +16,7 @@
         <div class="badge-steal">Promo de hoje !</div>
         <h1 class="hero-title">O Ataque Cardiáco <span>XL</span></h1>
         <p class="hero-subtitle">Hambúrguer Triplo + Duplo Bacon + Molho Especial</p>
-        <button class="btn-add-hero">Adicionar por R$14.99</button>
+        <button class="btn-add-hero">Adicionar por R$14,99</button>
     </section>
 
     <main class="main-container">
@@ -24,79 +24,89 @@
         <aside class="sidebar">
             <h3>Categories</h3>
             <ul>
-                <li class="active">Burgers <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M2 12h20M2 15h20M3 12a9 9 0 0 1 18 0M4 18h16a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2z"/></svg></span></li>
-                <li>Fritança <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M5 11h14v10H5zM5 11L7 2M9 11L10 3M12 11L12 2M15 11L14 3M19 11L17 2"/></svg></span></li>
-                <li>Bebidas <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M6 8h12M7 8l1 12h8l1-12M9 8V4M12 4h-3"/></svg></span></li>
-                <li>Shakes <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M12 2a4 4 0 0 0-4 4v2h8V6a4 4 0 0 0-4-4zM6 8h12v2a6 6 0 0 1-12 0V8zM12 14v8M9 22h6"/></svg></span></li>
+                <li class="active" data-category="burgers">Burgers <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M2 12h20M2 15h20M3 12a9 9 0 0 1 18 0M4 18h16a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2z"/></svg></span></li>
+                <li data-category="fritança">Fritança <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M5 11h14v10H5zM5 11L7 2M9 11L10 3M12 11L12 2M15 11L14 3M19 11L17 2"/></svg></span></li>
+                <li data-category="bebidas">Bebidas <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M6 8h12M7 8l1 12h8l1-12M9 8V4M12 4h-3"/></svg></span></li>
+                <li data-category="shakes">Shakes <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M12 2a4 4 0 0 0-4 4v2h8V6a4 4 0 0 0-4-4zM6 8h12v2a6 6 0 0 1-12 0V8zM12 14v8M9 22h6"/></svg></span></li>
             </ul>
         </aside>
 
         <section class="products-section">
-            <h2 class="section-header">Burgers.</h2>
+            <h2 class="section-header" id="section-title">Burgers.</h2>
             
             <div class="products-grid">
                 
-                <div class="product-card">
+                <div class="product-card" data-category="burgers">
                     <span class="product-tag">O Entupidor de Veias</span>
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="product-image" style="background-image: url('/resources/img/o_entupidor.jpeg');"></div>
                     <div class="product-info-row">
-                        <h3 class="product-name">*** Hamburguer Triplo ***</h3>
+                        <h3 class="product-name">Hamburguer Triplo</h3>
                         <span class="product-price">R$ 9,99</span>
                     </div>
-                    <p class="product-desc">Beef patty, lettuce, tomato, pickles, and our famous Joint sauce.</p>
+                    <p class="product-desc">Hambúrguer, alface, tomate, picles e o nosso famoso molho Entope Veia.</p>
                     <button class="btn-add-order"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Adicionar ao carrinho</button>
                 </div>
 
-                <div class="product-card">
-                    <span class="product-tag spicy">Spicy</span>
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="product-card" data-category="burgers">
+                    <span class="product-tag spicy">Apimentado</span>
+                    <div class="product-image" style="background-image: url('/resources/img/burger-classico.jpeg');"></div>
                     <div class="product-info-row">
-                        <h3 class="product-name">Spicy Hen</h3>
+                        <h3 class="product-name">Fogo nas Veias</h3>
                         <span class="product-price">R$ 11,49</span>
                     </div>
-                    <p class="product-desc">Buttermild fried chicken, jalapeños, and ghost pepper mayo.</p>
+                    <p class="product-desc">Hambúrguer, jalapeños, e maionese de ghost pepper.</p>
                     <button class="btn-add-order"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Adicionar ao carrinho</button>
                 </div>
 
-                <div class="product-card">
-                    <span class="product-tag vegan">Vegan</span>
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="product-card" data-category="burgers">
+                    <span class="product-tag vegan">Vegano</span>
+                    <div class="product-image" style="background-image: url('/resources/img/pizza-vegana.jpeg');"></div>
                     <div class="product-info-row">
-                        <h3 class="product-name">The Faker</h3>
+                        <h3 class="product-name">Pizza Vegana</h3>
                         <span class="product-price">R$ 12,99</span>
                     </div>
-                    <p class="product-desc">100% plant-based patty that bleeds beet juice. No guilt, all flavor.</p>
+                    <p class="product-desc">Pizza 100% vegetal que sangra suco de beterraba. Sem culpa, puro sabor.</p>
                     <button class="btn-add-order"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Adicionar ao carrinho</button>
                 </div>
 
-                <div class="product-card">
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="product-card" data-category="fritança">
+                    <div class="product-image" style="background-image: url('/resources/img/fritas.jpeg');"></div>
                     <div class="product-info-row">
-                        <h3 class="product-name">Grease Sticks</h3>
+                        <h3 class="product-name">Batatas Fritas</h3>
                         <span class="product-price">R$ 4,99</span>
                     </div>
-                    <p class="product-desc">Large bucket of double-fried russet potatoes with house salt.</p>
+                    <p class="product-desc">Porção grande de batatas Russet fritas duas vezes, com sal da casa.</p>
                     <button class="btn-add-order"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Adicionar ao carrinho</button>
                 </div>
 
-                <div class="product-card">
-                    <span class="product-tag spicy">Hot</span>
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1639024471283-2bc7b3c6a267?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="product-card" data-category="fritança">
+                    <span class="product-tag spicy">Apimentado</span>
+                    <div class="product-image" style="background-image: url('/resources/img/cebola-fritas.jpeg');"></div>
                     <div class="product-info-row">
-                        <h3 class="product-name">Ring of Fire</h3>
+                        <h3 class="product-name">Anéis de Fogo!</h3>
                         <span class="product-price">R$ 5,99</span>
                     </div>
-                    <p class="product-desc">Beer-battered onion rings with a spicy cayenne dust.</p>
+                    <p class="product-desc">Anéis de cebola empanados com cerveja e uma camada picante de pimenta cayenne.</p>
                     <button class="btn-add-order"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Adicionar ao carrinho</button>
                 </div>
 
-                <div class="product-card">
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="product-card" data-category="bebidas">
+                    <div class="product-image" style="background-image: url('/resources/img/coca.jpeg');"></div>
+                    <div class="product-info-row">
+                        <h3 class="product-name">Coca-Cola</h3>
+                        <span class="product-price">R$ 5,00</span>
+                    </div>
+                    <p class="product-desc">Para desobstruir a garganta com tanta gordura</p>
+                    <button class="btn-add-order"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Adicionar ao carrinho</button>
+                </div>
+
+                <div class="product-card" data-category="shakes">
+                    <div class="product-image" style="background-image: url('/resources/img/shake-choco.jpeg');"></div>
                     <div class="product-info-row">
                         <h3 class="product-name">Choco-Coma</h3>
                         <span class="product-price">R$ 7,49</span>
                     </div>
-                    <p class="product-desc">Triple chocolate milkshake. If you can finish it, you're a hero.</p>
+                    <p class="product-desc">Milkshake de três chocolates. Se você conseguir terminar, é um herói.</p>
                     <button class="btn-add-order"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Adicionar ao carrinho</button>
                 </div>
 
@@ -106,5 +116,49 @@
 
     <footer id="global-footer"></footer>
     <script src="resources/js/components.js"></script>
+    <script>
+        // Script de filtragem simples por categorias
+        document.addEventListener('DOMContentLoaded', () => {
+            const categoryItems = document.querySelectorAll('.sidebar ul li');
+            const productCards = document.querySelectorAll('.product-card');
+            const sectionTitle = document.getElementById('section-title');
+
+            function filterCategory(category) {
+                // Filtra os produtos
+                productCards.forEach(card => {
+                    if (card.getAttribute('data-category') === category) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            categoryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Atualiza a classe ativa na sidebar de categorias
+                    categoryItems.forEach(li => li.classList.remove('active'));
+                    item.classList.add('active');
+
+                    // Pega a categoria selecionada
+                    const category = item.getAttribute('data-category');
+
+                    // Atualiza o título da seção
+                    const categoryText = item.firstChild.textContent.trim();
+                    sectionTitle.textContent = categoryText + '.';
+
+                    // Executa a filtragem
+                    filterCategory(category);
+                });
+            });
+
+            // Executa a filtragem inicial com a categoria ativa padrão (Burgers)
+            const activeCategoryItem = document.querySelector('.sidebar ul li.active');
+            if (activeCategoryItem) {
+                const defaultCategory = activeCategoryItem.getAttribute('data-category');
+                filterCategory(defaultCategory);
+            }
+        });
+    </script>
 </body>
 </html>

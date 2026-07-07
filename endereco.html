@@ -47,7 +47,7 @@
                     </div>
 
                     <section class="saved-addresses-section">
-                        <h3>📋 ENDEREÇOS SALVOS</h3>
+                        <h3>ENDEREÇOS SALVOS</h3>
                         <div class="address-list">
                             
                             <!-- Coordenadas ajustadas para Porto Alegre -->
@@ -107,10 +107,10 @@
         // Inicializa o mapa focado em Porto Alegre (Centro Histórico)
         const map = L.map('map').setView([-30.0275, -51.2275], 14);
 
-        // Renderiza camadas do OpenStreetMap (Gratuito e sem erro de API)
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        // Renderiza camadas do Google Maps (Básico/Claro)
+        L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 19,
-            attribution: '© OpenStreetMap'
+            attribution: '© Google Maps'
         }).addTo(map);
 
         // Ícone personalizado amarelo

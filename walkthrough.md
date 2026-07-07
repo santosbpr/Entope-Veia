@@ -22,6 +22,38 @@ Substituímos os blocos estáticos repetitivos por placeholders simples (element
 * [avaliacao.html](file:///home/johnny/Área de trabalho/Entope-Veia-main/avaliacao.html) (Adicionados `<aside id="global-sidebar">` e `<footer id="global-avaliacao-footer">`)
 * [pontos.html](file:///home/johnny/Área de trabalho/Entope-Veia-main/pontos.html) (Adicionados `<aside id="global-sidebar">` e `<footer id="global-pontos-footer">`)
 
+### 3. Remoção Completa de Emojis do Código HTML e JS
+Varremos e limpamos todos os arquivos HTML e o arquivo JS de componentes para assegurar que nenhum emoticon ou emoji seja usado como elemento de interface:
+* **No `components.js`**: Removemos os emojis do rodapé (`🕒`, `🎟️`, `📱`, `➔`), deixando apenas texto limpo.
+* **Nas páginas HTML**:
+  * Substituímos `🔍` (Pesquisa) e `🛒` (Carrinho) por SVGs inline em `personalizacao.html`, `status.html`, `pagamento.html` e `pontos.html`.
+  * Substituímos `🔥` (Calorias) por SVG inline de fogo em `personalizacao.html`.
+  * Substituímos `⏱` (Cronômetro), `📍` (Pin de Mapa), `💬` (Chat), `📞` (Telefone), `🚚` (Caminhão de Entrega), `🏠` (Casa) e `❓` (Ajuda) por SVGs inline vetoriais em `status.html` e `pagamento.html`.
+  * Removemos `📋` (Prancheta) do título de endereços salvos em `endereco.html`.
+  * Substituímos `💳` (Cartão), `📱` (Pix) e `💵` (Dinheiro) por SVGs inline de pagamento em `pagamento.html`.
+  * Substituímos `⭐` (Estrela) por SVG inline de estrela em `pontos.html`.
+
+### 4. Filtro de Categorias no Cardápio (index.html)
+Reconstruímos a lógica de filtragem simples no cardápio inicial:
+* Adicionamos atributos `data-category` na lista de categorias (`burgers`, `fritança`, `bebidas`, `shakes`) e em cada card de produto do grid.
+* Adicionamos um script ao final do `index.html` que captura cliques nas categorias, alterna a classe ativa visual, altera dinamicamente o título principal (ex: "Fritança.") e exibe/oculta os cards correspondentes.
+* Adicionamos um item de teste à categoria vazia "Bebidas" (Cachaça do Infarto) para demonstrar a filtragem funcionando em todas as categorias.
+
+### 5. Estilização Padrão do Mapa (Google Maps / Light Theme)
+Ajustamos a exibição do mapa interativo em `endereco.html`:
+* Removi o filtro CSS de inversão de cores (`filter: invert(...)`) do container `#map` em `endereco.css` que aplicava o modo escuro cyberpunk.
+* Alterei a fonte de renderização do Leaflet em `endereco.html` para utilizar os blocos oficiais do **Google Maps** (`https://mt1.google.com/vt/...`), restaurando o design clássico claro/branco (ruas claras, água azul, parques verdes) para evitar qualquer problema de legibilidade ou quebra cromática.
+
+### 6. Padronização da Sidebar Desktop (Menu Lateral)
+Padronizamos a exibição e estilização da barra lateral esquerda em computadores para ficar idêntica à tela de Pontos:
+* Injetamos estilos CSS globais específicos para a sidebar desktop (`#global-sidebar`) no script `components.js` dentro de `@media (min-width: 769px)`.
+* Restauramos e padronizamos a foto de perfil do usuário (`.user-avatar`), aplicando dimensões responsivas maiores e mais harmoniosas (110x110px, borda arredondada de 8px, borda vermelha espessa de 3px, sombra de destaque e margem superior/inferior adequada) para que apareça de forma idêntica em todas as páginas desktop.
+* Corrigimos o espaçamento e alinhamento do botão "PEÇA AGORA" para que ele se posicione corretamente na base da barra lateral esquerda em todas as páginas, eliminando sobreposições.
+* **Ocultação da Sidebar Global no Cardápio (`index.html`)**: Como a página inicial possui sua própria barra de categorias no desktop, adicionamos uma verificação no JS para identificar se estamos na página inicial e aplicar a classe `.gs-index-sidebar`, ocultando a barra lateral de navegação global no desktop de forma automática e mantendo-a apenas no mobile como Bottom Nav.
+* **Link de Perfil no Menu Superior (`components.js`)**: Adicionamos o link textual para a página de perfil (`endereco.html`) no cabeçalho padrão (`mainHeader`), posicionando-o ao lado de "Pedidos" no desktop para facilitar o acesso à tela de endereço na home.
+* **Opção "Sair" na Sidebar Desktop (`components.js`)**: Adicionamos o item "Sair" no final da lista do menu lateral, com um ícone SVG clássico de saída, apontando para a página de login (`login.html`). Ele é exibido de forma consistente em computadores, mas é ocultado via CSS no mobile para preservar o design de 4 abas no Bottom Nav.
+* **Melhoria da Responsividade do Cabeçalho (`menu.css`)**: Alteramos o ponto de quebra (breakpoint) do cabeçalho flexível na página inicial de `600px` para `850px`. Isso faz com que os elementos do menu superior (logo, links e barra de busca) quebrem em coluna antes de ficarem espremidos ou sobrepostos horizontalmente em telas de tablets ou desktops redimensionados.
+
 ---
 
 ## Verificação dos Resultados

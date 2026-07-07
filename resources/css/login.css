@@ -24,7 +24,7 @@ body {
 .left-side {
     flex: 1.2;
     background: linear-gradient(to right, rgba(12, 12, 12, 0.2) 40%, rgba(12, 12, 12, 0.95)), 
-                url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=80') center/cover;
+                url('/resources/img/o_entupidor.jpeg') center/cover;
     display: flex;
     align-items: flex-end;
     padding: 60px 8%;
